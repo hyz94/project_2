@@ -1,0 +1,82 @@
+@charset "UTF-8";
+header { height: 206px; border-bottom: 1px solid #ccc; }
+
+header .container { width: 1200px; }
+
+header .container .HnavH { height: 36px; background: #FAFAFA; line-height: 36px; font-size: 12px; }
+
+header .container .HnavH li { position: relative; }
+
+header .container .HnavH ul li a span { color: #555454; }
+
+header .container .HnavH .HnavH_ul1 { width: 300px; }
+
+header .container .HnavH .HnavH_ul1 li:nth-child(1) a i { display: block; width: 18px; height: 18px; background: url("../img/header.fw.png"); position: absolute; top: 9px; }
+
+header .container .HnavH .HnavH_ul1 li:nth-child(1) a span { padding: 0px 20px 0px 25px; border-right: 1px solid #ccc; }
+
+header .container .HnavH .HnavH_ul1 li:nth-child(2) a i { display: block; width: 18px; height: 18px; background: url("../img/header.fw.png") -30px 0px; position: absolute; left: 15px; top: 9px; }
+
+header .container .HnavH .HnavH_ul1 li:nth-child(2) a span { padding: 0px 0px 0px 40px; }
+
+header .container .HnavH .HnavH_ul2 { width: 250px; }
+
+header .container .HnavH .HnavH_ul2 li a span { padding: 0px 10px; }
+
+header .container .HnavH .HnavH_ul2 li:nth-child(2) span { border-right: 1px solid #ccc; }
+
+header .container .HnavH .HnavH_ul2 li:nth-child(3) { padding-right: 40px; }
+
+header .container .HnavH .HnavH_ul2 li:nth-child(3) i { display: block; width: 18px; height: 18px; background: url("../img/header.fw.png") -60px 0px; position: absolute; left: 15px; top: 9px; }
+
+header .container .HnavH .HnavH_ul2 li:nth-child(3) .HnavH_ul2_s1 { padding-left: 40px; }
+
+header .container .HnavH .HnavH_ul2 li:nth-child(3) span { padding: 0px; }
+
+header .container .headerLogo div:nth-child(1) { height: 98px; width: 700px; padding: 32px 292px 0px 492px; }
+
+header .container .headerLogo div:nth-child(2) { height: 98px; width: 240px; position: relative; padding-top: 50px; }
+
+header .container .headerLogo div:nth-child(2) input { padding: 5px 8px; height: 26px; border: 1px solid #ccc; }
+
+header .container .headerLogo div:nth-child(2) i { display: block; width: 18px; height: 18px; background: url("../img/header.fw.png") -90px 0px; position: absolute; left: 147px; top: 51px; }
+
+header .container .HnavF { height: 72px; line-height: 70px; /* 制作边框箭头 */ }
+
+header .container .HnavF li { position: relative; }
+
+header .container .HnavF li a span { color: #555454; padding: 0px 43px; }
+
+header .container .HnavF #newGoods, header .container .HnavF #homeLife, header .container .HnavF #brand { background: #fefefe; width: 1200px; height: 240px; z-index: 100; display: none; position: absolute; top: 72px; left: -253px; }
+
+header .container .HnavF #newGoods ul:nth-child(1), header .container .HnavF #homeLife ul:nth-child(1), header .container .HnavF #brand ul:nth-child(1) { padding-left: 300px; }
+
+header .container .HnavF #newGoods ul, header .container .HnavF #homeLife ul, header .container .HnavF #brand ul { padding-top: 20px; width: 500px; font-size: 14px; line-height: 40px; text-align: center; }
+
+header .container .HnavF #newGoods ul li:nth-child(1), header .container .HnavF #homeLife ul li:nth-child(1), header .container .HnavF #brand ul li:nth-child(1) { font-weight: bold; }
+
+header .container .HnavF #girlGoods, header .container .HnavF #manGoods { background: #fefefe; width: 1200px; height: 370px; z-index: 100; display: none; position: absolute; top: 72px; left: -403px; }
+
+header .container .HnavF #girlGoods ul, header .container .HnavF #manGoods ul { padding: 0px 0px 0px 20px; width: 300px; font-size: 14px; line-height: 40px; text-align: left; }
+
+header .container .HnavF #girlGoods ul li:nth-child(1), header .container .HnavF #manGoods ul li:nth-child(1) { font-weight: bold; }
+
+header .container .HnavF #manGoods { padding-top: 20px; height: 480px; position: absolute; top: 72px; left: -521px; }
+
+header .container .HnavF #homeLife { height: 320px; position: absolute; top: 72px; left: -639px; }
+
+header .container .HnavF #homeLife ul:nth-child(1) { padding-left: 300px; }
+
+header .container .HnavF #watch { display: none; padding-left: 400px; background: #fefefe; width: 1200px; height: 320px; z-index: 100; position: absolute; top: 72px; left: -789px; }
+
+header .container .HnavF #watch ul { padding: 20px 0px 0px 0px; width: 300px; font-size: 14px; line-height: 40px; text-align: center; }
+
+header .container .HnavF #watch ul li:nth-child(1) { font-weight: bold; }
+
+header .container .HnavF #brand { height: 400px; position: absolute; top: 72px; left: -907px; }
+
+header .container .HnavF #brand ul:nth-child(1) { padding-left: 220px; }
+
+header .container .HnavF .HnavF_jt1 { width: 0; height: 0; border: 20px solid transparent; border-bottom-color: #ccc; position: absolute; top: 165px; left: 30px; display: none; }
+
+header .container .HnavF .HnavF_jt2 { width: 0; height: 0; border: 20px solid transparent; border-bottom-color: #fff; position: absolute; top: 166px; left: 30px; display: none; }

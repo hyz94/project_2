@@ -1,0 +1,204 @@
+@import 'var';
+header{
+    height:$headerHeight;
+    border-bottom:1px solid #ccc;
+    .container{
+        width:$containerWidth;
+        .HnavH{
+            height:36px;
+            background: #FAFAFA;
+            line-height: 36px;
+            font-size:12px;
+            li{
+                position:relative;
+            }
+            ul li a span{
+                color:#555454;
+            }
+            .HnavH_ul1{
+                width: 300px;
+                & li:nth-child(1){ 
+                    a i{
+                        display:block;
+                        width: 18px;
+                        height: 18px;
+                        background: url('../img/header.fw.png');
+                        position:absolute;top:9px;
+                    }     
+                    a span{
+                        padding:0px 20px 0px 25px;
+                        border-right:1px solid #ccc;
+                    }
+                }
+                & li:nth-child(2){
+                    a i{
+                        display:block;
+                        width: 18px;
+                        height: 18px;
+                        background: url('../img/header.fw.png') -30px 0px;
+                        position:absolute;left:15px;top:9px;
+                    }    
+                    a span{
+                        padding:0px 0px 0px 40px;
+                    } 
+                }
+            }
+            .HnavH_ul2{
+                width: 250px;
+                li a span{
+                    padding:0px 10px;
+                    
+                }
+                li:nth-child(2){
+                    span{
+                        border-right:1px solid #ccc;
+                    }
+                }   
+                li:nth-child(3){
+                    padding-right:40px;
+                    i{
+                        display:block;
+                        width: 18px;
+                        height: 18px;
+                        background: url('../img/header.fw.png') -60px 0px;
+                        position:absolute;left:15px;top:9px;
+                    }
+                    .HnavH_ul2_s1{
+                        padding-left:40px;
+                    }
+                    span{padding:0px;}
+                }
+            }
+        }
+        .headerLogo{          
+            & div:nth-child(1){
+                height:98px;
+                width: 700px;
+                padding:32px 292px 0px 492px;
+
+            }
+            & div:nth-child(2){
+                height:98px;
+                width: 240px;
+                position:relative;
+                padding-top:50px;
+                input{
+                    padding:5px 8px;
+                    height:26px;
+                    border:1px solid #ccc;
+                }
+                i{
+                    display:block;
+                    width: 18px;
+                    height: 18px;
+                    background: url('../img/header.fw.png') -90px 0px;
+                    position:absolute;left:147px;top:51px;
+                }
+            }
+
+        }
+        .HnavF{
+            height:72px;
+            line-height: 70px;
+            li{
+                position:relative;
+            }
+            li a span{
+                color:#555454;
+                padding:0px 43px;
+            }
+            
+            #newGoods,#homeLife,#brand{
+                background: #fefefe;
+                width: 1200px;
+                height: 240px;
+                z-index:100;
+                display:none;
+                position:absolute;top:72px;left:-253px;
+                ul:nth-child(1){
+                    padding-left:300px;
+                }
+                ul{
+                    padding-top:20px;
+                    width: 500px;
+                    font-size:14px;
+                    line-height: 40px;
+                    text-align:center;
+                    & li:nth-child(1){
+                        font-weight:bold;
+                    }
+                }
+            }
+
+            #girlGoods,#manGoods{
+                background: #fefefe;
+                width: 1200px;
+                height: 370px;
+                z-index:100;
+                display:none;
+                position:absolute;top:72px;left:-403px;
+                ul{
+                    padding:0px 0px 0px 20px;
+                    width: 300px;
+                    font-size:14px;
+                    line-height: 40px;
+                    text-align:left;
+                    & li:nth-child(1){
+                        font-weight:bold;
+                    }
+                }
+            }
+            #manGoods{
+                padding-top:20px;
+                height: 480px;
+                position:absolute;top:72px;left:-521px;
+
+            }
+            #homeLife{
+                height:320px;
+                position:absolute;top:72px;left:-639px;
+                ul:nth-child(1){
+                    padding-left:300px;
+                }
+            }
+            #watch{
+                display:none;
+                padding-left:400px;
+                background: #fefefe;
+                width: 1200px;
+                height: 320px;
+                z-index:100;
+                // display:none;
+                position:absolute;top:72px;left:-789px;
+                ul{
+                    padding:20px 0px 0px 0px;
+                    width: 300px;
+                    font-size:14px;
+                    line-height: 40px;
+                    text-align:center;
+                    & li:nth-child(1){
+                        font-weight:bold;
+                    }
+                }
+            }
+            #brand{
+                height: 400px;
+                position:absolute;top:72px;left:-907px;
+                ul:nth-child(1){
+                    padding-left:220px;
+                }
+            }
+            /*
+                制作边框箭头
+             */
+            .HnavF_jt1{
+                width:0;height:0;border:20px solid transparent;border-bottom-color:#ccc;position:absolute;top:165px;left:30px;
+                    display:none;
+            }
+            .HnavF_jt2{
+                width:0;height:0;border:20px solid transparent;border-bottom-color:#fff;position:absolute;top:166px;left:30px;
+                    display:none;
+            }
+        }
+    }
+}
