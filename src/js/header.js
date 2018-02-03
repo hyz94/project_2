@@ -6,10 +6,13 @@ require(['config'],function(){
         var arr = '1,2,#newGoods,#girlGoods,#manGoods,#homeLife,#watch,#brand'.split(',');
         var $jt1=$('.HnavF_jt1');
         var $jt2=$('.HnavF_jt2');
-        $('.HnavF').on('mouseenter','li',function(){
+        $('.HnavF').on('mouseenter','.mouseLi',function(){
             // console.log($(this).index());
+            console.log($(this))
             var idx = $(this).index();
-            $(arr[idx]).css({display:'block'});
+             $(arr[idx]).stop().slideDown(600);
+
+            // $(arr[idx]).css({display:'block'});
             if(idx == 2){
                 $jt1.css({
                     display:'block',
@@ -70,9 +73,14 @@ require(['config'],function(){
                     left:'987px'
                 })
             }
-        }).on('mouseleave','li',function(){
+        }).on('mouseleave','.mouseLi',function(){
             var idx = $(this).index();
-            $(arr[idx]).css({display:'none'});
+            setTimeout(function(){
+                $(arr[idx]).stop().slideUp(600);
+
+                // $(arr[idx]).css({display:'none'});
+            }, 300)
+            
             $jt1.css({
                     display:'none',
             });

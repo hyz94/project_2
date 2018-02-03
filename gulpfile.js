@@ -7,6 +7,6 @@ gulp.task('compileSass',function(){
     .pipe(gulp.dest('./src/css/'))
 });
 //监听
-gulp.task('jsSass',function(){
+gulp.task('jtSass',function(){
     gulp.watch('./src/sass/*.scss',['compileSass'])
 });
