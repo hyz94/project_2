@@ -47,7 +47,7 @@ header .container .HnavF li { position: relative; }
 
 header .container .HnavF li a span { color: #555454; padding: 0px 43px; }
 
-header .container .HnavF #newGoods, header .container .HnavF #homeLife, header .container .HnavF #brand { background: #fefefe; width: 1200px; height: 240px; z-index: 100; display: none; position: absolute; top: 72px; left: -253px; }
+header .container .HnavF #newGoods, header .container .HnavF #homeLife, header .container .HnavF #brand { background: #fefefe; width: 1200px; height: 230px; z-index: 100; display: none; position: absolute; top: 72px; left: -253px; }
 
 header .container .HnavF #newGoods ul:nth-child(1), header .container .HnavF #homeLife ul:nth-child(1), header .container .HnavF #brand ul:nth-child(1) { padding-left: 300px; }
 
@@ -55,7 +55,7 @@ header .container .HnavF #newGoods ul, header .container .HnavF #homeLife ul, he
 
 header .container .HnavF #newGoods ul li:nth-child(1), header .container .HnavF #homeLife ul li:nth-child(1), header .container .HnavF #brand ul li:nth-child(1) { font-weight: bold; }
 
-header .container .HnavF #girlGoods, header .container .HnavF #manGoods { padding-top: 20px; background: #fefefe; width: 1200px; height: 370px; z-index: 100; display: none; position: absolute; top: 72px; left: -403px; }
+header .container .HnavF #girlGoods, header .container .HnavF #manGoods { padding-top: 20px; background: #fefefe; width: 1200px; height: 400px; z-index: 100; display: none; position: absolute; top: 72px; left: -403px; }
 
 header .container .HnavF #girlGoods ul, header .container .HnavF #manGoods ul { padding: 0px 0px 0px 20px; width: 300px; font-size: 14px; line-height: 40px; text-align: left; }
 

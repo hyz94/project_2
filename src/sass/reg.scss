@@ -1,0 +1,209 @@
+header{
+    height: 148px;
+    box-shadow:1px 1px 3px 1px #ccc;
+    .container{
+
+        height: 148px;
+        padding:38px 0px 42px 0px;
+        background:url(../img/reg1.png) no-repeat 0px 38px;
+        p{
+            line-height: 68px;
+            font-size:14px;
+            a span{
+                color:#454444;
+            }
+        }
+    }
+}
+main{
+    height: 561px;
+    padding:50px 70px 50px 615px;
+    background: url(../img/reg.jpg) no-repeat 0px 26px;
+    .container .reg{
+        height: 461px;
+        width: 382px;
+        border:1px solid #e8e8e8;
+        box-shadow:3px 3px 7px #eee;
+        padding:34px 40px 40px 40px;
+        position:relative;
+        .tel,.password,.code,.cfpw,{
+            width: 100%;
+            border:1px solid #ccc;
+            height: 38px;
+            margin-bottom:10px;
+            padding-left:40px;
+        }
+        .btn{
+            width: 100%;
+            border:1px solid #ccc;
+        }
+        // input{
+        //     height: 38px;
+        //     
+        // }
+        // .regMC{
+        //     font-size:20px;
+        //     font-weight:bold;
+        //     color:#353434;
+        //     padding-bottom:22px;
+        // }
+        // .tel,.password,.cfpw,.btn{
+        //     width: 100%;
+        // }
+        // .code{
+        //     width: 164px;
+        // }
+        // .DXCode{
+        //     width: 200px;
+        // }
+        // .btn{
+        //     border:1px solid #ccc;
+        //     background: #000;
+        //     height: 50px;
+        //     color:#fff;
+        //     font-size:20px;
+        // }
+        // .icon-tel,.icon-DXCode,.icon-pw,.icon-cfpw{
+        //     width: 26px;
+        //     height: 26px;
+        //     display:block;
+        //     border-right:1px solid #ccc;
+        // }
+        // .icon-tel{
+        //     background: url(../img/reg2.gif) -52px;
+        //     position:absolute;left:41px;top:88px;
+            
+        // }
+        // .icon-DXCode{
+        //     background: url(../img/reg2.gif)-78px;
+        //     position:absolute;left:41px;top:186px;
+        // }
+        // .icon-pw{
+        //     background: url(../img/reg2.gif)-26px;
+        //     position:absolute;left:41px;top:233px;
+        // }
+        // .icon-cfpw{
+        //     background: url(../img/reg2.gif)-26px;
+        //     position:absolute;left:41px;top:281px;
+        // }
+    }
+}
+footer{
+    height: 280px;
+    background: #414141;
+    .container{
+        .footer1{
+            height: 138px;
+            color:#fff;
+            border-bottom:1px solid #000;
+            li{
+                width: 33.33%;
+                height: 138px;
+                line-height: 138px;
+                position:relative;
+                
+                span{
+                    padding-left:80px;
+                }
+                i{
+                    display:block;width: 55px;height: 55px;
+                }
+                &:nth-child(2){
+                    text-align:center;
+                }
+                &:nth-child(3){
+                    text-align:right;
+                }
+            }
+            li:nth-child(1) i{
+                background: url(../img/footer.fw.png);
+                position:absolute;top:36px;
+            }
+            li:nth-child(2) i{
+                background: url(../img/footer.fw.png) -60px 0px;
+                position:absolute;top:36px;left:115px;
+            }
+            li:nth-child(3) i{
+                background: url(../img/footer.fw.png) -120px 0px;
+                position:absolute;top:36px;left:170px;
+            }
+        }
+        .footer2{
+            height: 142px;
+            padding:36px 0px 18px 0px;
+            color:#999999;
+            font-size:12px;
+
+            .footerLeft{
+                width: 50%;
+                border-right:1px solid #000;
+                ul{
+                    margin-bottom:10px;
+                }
+                ul li{
+                    width: 65px;
+                    border-right:1px solid #ccc;
+                    text-align:center;
+                    a{
+                        color:#999999;
+                        &:hover{
+                            color:red;
+                        }
+                    }
+                }
+                
+                p{
+                    padding-left:7px;
+                    line-height: 30px;
+                }
+            }
+            .footerRight{
+                width: 50%;
+                height: 86px;
+                p:nth-child(1){
+                    text-align:center;
+                    height: 44px;
+                    font-size:16px;
+                }
+                p:nth-child(2){
+                    position:relative;
+                    
+                    a i{
+                        display:block;
+                        height: 34px;
+                    }
+                    a:nth-child(1) i{
+                        width: 24px;
+                        background: url(../img/footer1.fw.png);
+                        position:absolute;left:15px;
+                    }
+                    a:nth-child(2) i{
+                        width: 112px;
+                        background: url(../img/footer1.fw.png) -30px 0px;
+                        position:absolute;left:60px;
+                    }
+                    a:nth-child(3) i{
+                        width: 77px;
+                        background: url(../img/footer1.fw.png) -146px 0px;
+                        position:absolute;left:195px;
+                    }
+                    a:nth-child(4) i{
+                        width: 78px;
+                        background: url(../img/footer1.fw.png) -240px 0px;
+                        position:absolute;left:300px;
+                    }
+                    a:nth-child(5) i{
+                        width: 65px;
+                        background: url(../img/footer1.fw.png) -319px 0px;
+                        position:absolute;left:415px;
+                    }
+                    a:nth-child(6) i{
+                        width: 81px;
+                        background: url(../img/footer1.fw.png) -391px 0px;
+                        position:absolute;left:514px;
+                    }
+                }
+            }
+        }
+    }
+}

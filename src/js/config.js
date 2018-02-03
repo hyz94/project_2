@@ -5,6 +5,8 @@ require.config({
     },
     shim:{
         // 设置依赖
+
+        
         'zoom':['jquery'],
         // 'common':['jquery']
     }

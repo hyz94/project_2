@@ -8,7 +8,7 @@ require(['config'],function(){
         var $jt2=$('.HnavF_jt2');
         $('.HnavF').on('mouseenter','.mouseLi',function(){
             // console.log($(this).index());
-            console.log($(this))
+            // console.log($(this))
             var idx = $(this).index();
              $(arr[idx]).stop().slideDown(600);
 

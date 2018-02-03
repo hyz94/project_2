@@ -1,0 +1,103 @@
+@import 'var';
+.benner{
+    height: 628px;
+    .container{
+        height: 628px;
+        padding-top:28px;
+        .carousel{
+            width: 1200px;
+            height: 600px;
+            overflow:hidden;
+        }
+    }
+}
+main{
+    height: 2145px;
+    .container{
+        height: 2145px;
+        .offer,.manOffer,.womanOffer{
+            padding-top:9px;
+            height: 586px;
+            color:#555454;
+            p{
+                text-align:center;
+
+                &:nth-child(2){
+                    border-top:1px solid #ccc;
+                    span{
+                        font-size:14px;
+                        color:#858484;
+
+                    }
+                }
+                span{
+                    padding:7px 100px;
+                    height: 34px;
+                    line-height: 34px;
+                    border:1px solid #fff;
+                    
+                    
+                }
+                
+            }
+            
+            ul{
+                padding-top:9px;
+            }
+            ul li:nth-child(2){
+                padding-top:13px;
+            }
+            .middleUl li{
+                padding-left:12px;
+            }
+        }
+
+        .sold{
+            height: 387px;
+            padding-top:9px;
+            p{
+                text-align:center;
+
+                .line{
+                    border-top:1px solid #ccc;
+                    span{
+                        font-size:14px;
+                        color:#858484;
+
+                    }
+                }
+                span{
+                    padding:7px 100px;
+                    height: 34px;
+                    line-height: 34px;
+                    border:1px solid #fff;
+                    
+                    
+                }
+                
+            }
+            .soldGoods{
+                height: 311px;
+                padding-top:6px;
+                overflow:hidden;
+                .goodsLi{
+                    width: 190px;
+                    padding:0px 15px;
+                    font-size:12px;
+                    color:#555454;
+                    .goodsType{
+                        color:#e5e4e4;
+                        line-height: 30px;
+                    }
+                }
+                & li:nth-child(1){
+                    padding:100px 0px 0px 10px;
+                }
+                & li:nth-child(8){
+                    padding:100px 10px 0px 0px;
+                }
+            }
+
+        }
+    }
+}
