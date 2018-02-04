@@ -12,7 +12,7 @@ require(['config'],function(){
                 // console.log($(this))
                 var idx = $(this).index();
                  $(arr[idx]).stop().slideDown(600);
-
+                 // console.log(arr)
                 // $(arr[idx]).css({display:'block'});
                 if(idx == 2){
                     $jt1.css({
@@ -95,6 +95,43 @@ require(['config'],function(){
             }).on('mouseleave','span',function(){
                 $(this).css({color:'#555454'});
             })
+            //自动登录，获取传过来的用户名
+            console.log(location.search)
+            $('.hoverUl').css({
+                display:'none'
+            })
+            if((location.search) != ''){
+                var arr_LS = location.search.slice(1).split('=');
+                console.log(arr_LS[1]);
+                //删除跳转到登录注册页的a标签
+                $('.enter').closest('a').remove();
+                $('<span/>').text(arr_LS[1]+'▲').appendTo($('.HnavH_ul2').children().first());
+                $('.reg').closest('a').remove();
+                $('.HnavH_ul2').width('250px');
+                //hover上去生成一个ul
+                $('.hoverLi').css({
+                    position:'relative'
+                });
+                $('.hoverUl').css({
+                    display:'none',
+                    position:'absolute',
+                    left:'1px',
+                    top:'30px',
+                    'z-index':'100',
+                    background:'#fff',
+                    border:'1px solid #ccc'
+                });
+                $('.hoverUl').find('li').css({
+                    padding:'0px 10px',
+                    height:'30px'
+                });
+                $('.hoverLi').mouseenter(function(){
+                    $('.hoverUl').show();
+                }).mouseleave(function(){
+                    $('.hoverUl').hide();
+                })
+            }
+            
         });
         //引入底部的代码
         $('footer').load('html/footer.html');
@@ -128,12 +165,12 @@ require(['config'],function(){
                     </li>`;
                 }).join('');
                 resHtml += `<li class="fr"><img src="../img/index_hot_you.png"/></li>`;
-                console.log(resHtml)
+                // console.log(resHtml)
                 $('<ul/>').addClass('clearfix').html(resHtml).appendTo('.soldGoods');
             }
 
         })
-        
+
     })
     
 })

@@ -113,16 +113,17 @@ main{
         input{
             width: 100%;
         }
-        // .tel,.password,.cfpw input{
-        //     width: 100%;
-        // }
+        .verify{
+            height: 30px;
+            font-size:10px;
+            color:red;
+        }
         .btn{
             border:1px solid #ccc;
             background: #000;
             height: 50px;
             color:#fff;
             font-size:20px;
-            margin-top:30px;
         }
         .btnP{
             padding:14px 0px 0px 225px;
@@ -132,49 +133,7 @@ main{
                 color:#669aca;
             }
         }
-        // input{
-        //     height: 38px;
-        //     
-        // }
-        // .regMC{
-        //     font-size:20px;
-        //     font-weight:bold;
-        //     color:#353434;
-        //     padding-bottom:22px;
-        // }
-        // .tel,.password,.cfpw,.btn{
-        //     width: 100%;
-        // }
-        // .code{
-        //     width: 164px;
-        // }
-        // .DXCode{
-        //     width: 200px;
-        // }
         
-        // .icon-tel,.icon-DXCode,.icon-pw,.icon-cfpw{
-        //     width: 26px;
-        //     height: 26px;
-        //     display:block;
-        //     border-right:1px solid #ccc;
-        // }
-        // .icon-tel{
-        //     background: url(../img/reg2.gif) -52px;
-        //     position:absolute;left:41px;top:88px;
-            
-        // }
-        // .icon-DXCode{
-        //     background: url(../img/reg2.gif)-78px;
-        //     position:absolute;left:41px;top:186px;
-        // }
-        // .icon-pw{
-        //     background: url(../img/reg2.gif)-26px;
-        //     position:absolute;left:41px;top:233px;
-        // }
-        // .icon-cfpw{
-        //     background: url(../img/reg2.gif)-26px;
-        //     position:absolute;left:41px;top:281px;
-        // }
     }
 }
 footer{

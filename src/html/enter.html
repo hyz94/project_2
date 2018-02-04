@@ -5,6 +5,7 @@
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css" />
     <link rel="stylesheet" type="text/css" href="../css/enter.css" />
+    <script src="../js/require.js" data-main="../js/enter" type="text/javascript"></script>
 </head>
 <body>
     <header>
@@ -20,10 +21,11 @@
                     <i class="icon-tel"></i><input type="text" placeholder="请输入手机号或邮箱" id="tel"/>
                 </div>
                 <div class="password">
-                    <i class="icon-pw"></i><input type="password" placeholder="请输入密码"/><i></i>
+                    <i class="icon-pw"></i><input type="password" placeholder="请输入密码" id="password"/><i></i>
                 </div>
-                <p class="cbP"><input type="checkbox" id="checkBox"/><label for="checkBox">自动登录</label><a href="#"><span>忘记密码？</span></a></p>
-                <button class="btn">登录</button>
+                <p class="cbP"><input type="checkbox" id="checkBox" checked="true" /><label for="checkBox">自动登录</label><a href="#"><span>忘记密码？</span></a></p>
+                <p class="verify"></p>
+                <button class="btn" disabled="true">登录</button>
                 <p class="btnP"><a href="#"><span>立即注册</span></a></p>
                 <div class="lineAndP">
                     <div class="line"></div>

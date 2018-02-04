@@ -34,7 +34,9 @@ main .container .reg .cbP { font-size: 10px; color: #999; }
 
 main .container .reg .cbP a span { padding-left: 176px; color: #999; }
 
-main .container .reg .btn { border: 1px solid #ccc; background: #000; height: 50px; color: #fff; font-size: 20px; margin-top: 30px; }
+main .container .reg .verify { height: 30px; font-size: 10px; line-height: 30px; color: red; }
+
+main .container .reg .btn { border: 1px solid #ccc; background: #000; height: 50px; font-size: 20px; color: #fff; }
 
 main .container .reg .btnP { padding: 15px 0px 15px 250px; font-size: 10px; color: #555454; }
 
