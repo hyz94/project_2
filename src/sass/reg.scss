@@ -9,15 +9,23 @@ header{
         p{
             line-height: 68px;
             font-size:14px;
-            a span{
-                color:#454444;
+            color:#454444;
+            a{
+                padding-left:30px;
+                span{
+                    color:#454444;
+                    &:hover{
+                        color:red;
+                    }
+                }
             }
+            
         }
     }
 }
 main{
     height: 561px;
-    padding:50px 70px 50px 615px;
+    padding:50px 70px 50px 750px;
     background: url(../img/reg.jpg) no-repeat 0px 26px;
     .container .reg{
         height: 461px;
@@ -26,16 +34,103 @@ main{
         box-shadow:3px 3px 7px #eee;
         padding:34px 40px 40px 40px;
         position:relative;
-        .tel,.password,.code,.cfpw,{
+        .regMC{
+            font-size:20px;
+            font-weight:bold;
+            color:#353434;
+            padding-bottom:22px;
+        }
+        .tel,.password,.cfpw{
             width: 100%;
             border:1px solid #ccc;
             height: 38px;
             margin-bottom:10px;
-            padding-left:40px;
+            padding:6px 0px 0px 48px;
+        }
+
+        .DXCode{
+            height: 38px;
+            margin-bottom:10px;
+        }
+        .code{
+            height: 38px;
+            margin-bottom:10px;
+        }
+        .codeLeft{
+            width: 164px;
+            border:1px solid #ccc;
+            height: 38px;
+            padding:6px 0px 0px 10px;
+        }
+        .codeRight{
+            width: 120px;
+            height: 38px;
+            background: skyblue;
+            text-align:center;
+            line-height: 38px;
+            font-weight:bold;
+        }
+        .DXCodeLeft{
+            width: 200px;
+            border:1px solid #ccc;
+            height: 38px;
+            padding:6px 0px 0px 48px;
+        }
+        .DXCodeRight{
+            height: 38px;
+            width: 70px;
+            font-size:12px;
+            line-height: 38px;
         }
         .btn{
             width: 100%;
             border:1px solid #ccc;
+            cursor: pointer;
+        }
+        .icon-tel,.icon-DXCode,.icon-pw,.icon-cfpw{
+            width: 30px;
+            height: 26px;
+            display:block;
+            border-right:1px solid #ccc;
+        }
+        .icon-tel{
+            background: url(../img/reg2.gif) -52px;
+            position:absolute;left:48px;top:88px;
+            
+        }
+        .icon-DXCode{
+            background: url(../img/reg2.gif)-78px;
+            position:absolute;left:48px;top:186px;
+        }
+        .icon-pw{
+            background: url(../img/reg2.gif)-26px;
+            position:absolute;left:48px;top:233px;
+        }
+        .icon-cfpw{
+            background: url(../img/reg2.gif)-26px;
+            position:absolute;left:48px;top:281px;
+        }
+        input{
+            width: 100%;
+        }
+        // .tel,.password,.cfpw input{
+        //     width: 100%;
+        // }
+        .btn{
+            border:1px solid #ccc;
+            background: #000;
+            height: 50px;
+            color:#fff;
+            font-size:20px;
+            margin-top:30px;
+        }
+        .btnP{
+            padding:14px 0px 0px 225px;
+            font-size:10px;
+            color:#555454;
+            a span{
+                color:#669aca;
+            }
         }
         // input{
         //     height: 38px;
@@ -56,13 +151,7 @@ main{
         // .DXCode{
         //     width: 200px;
         // }
-        // .btn{
-        //     border:1px solid #ccc;
-        //     background: #000;
-        //     height: 50px;
-        //     color:#fff;
-        //     font-size:20px;
-        // }
+        
         // .icon-tel,.icon-DXCode,.icon-pw,.icon-cfpw{
         //     width: 26px;
         //     height: 26px;

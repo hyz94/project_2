@@ -5,11 +5,12 @@
     <title>注册</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css" />
     <link rel="stylesheet" type="text/css" href="../css/reg.css" />
+    <script src="../js/require.js" data-main="../js/reg" type="text/javascript"></script>
 </head>
 <body>
     <header>
         <div class="container clearfix">
-            <p class="fr"><a href="#"><span>需要帮助</span><i></i><span>4000-250-630</span></a></p>
+            <p class="fr"><span>需要帮助?</span><a href="#"><i><img src="../img/reg3.png" /></i><span> 4000-250-630</span></a></p>
         </div>
     </header>
     <main>
@@ -17,15 +18,25 @@
             <div class="reg">
                 <p class="regMC">注册美西账户</p>
                 <div class="tel">
-                    <i class="icon-tel"></i><input type="text" placeholder="请输入常用手机号"/>
+                    <i class="icon-tel"></i><input type="text" placeholder="请输入常用手机号" id="tel"/>
                 </div>
-                <div class="code">
-                    <input type="text" placeholder="&nbsp;&nbsp;请输入验证码"/>
+                <div class="code clearfix">
+                    <div class="codeLeft fl">
+                        <input type="text" placeholder="请输入验证码"/>
+                    </div>
+                    <div class="codeRight fr">
+                        <span>abcd</span>
+                    </div>
                 </div>
-                <div class="DXCode">
-                    <i class="icon-DXCode"></i><input type="text" placeholder="短信验证码"/>
-                    <label for="DXCode">发送验证码</label>
+                <div class="DXCode clearfix">
+                    <div class="DXCodeLeft fl">
+                        <i class="icon-DXCode"></i><input type="text" placeholder="短信验证码" id="dxCode"/>
+                    </div>
+                    <div class="DXCodeRight fr">
+                        <label for="dxCode">发送验证码</label>
+                    </div>
                 </div>
+                
                 <div class="password">
                     <i class="icon-pw"></i><input type="password" placeholder="请输入密码"/><i></i>
                 </div>
@@ -33,7 +44,7 @@
                     <i class="icon-cfpw"></i><input type="password" placeholder="再次输入密码"/><i></i><br />
                 </div>
                 <button class="btn">注册</button>
-                <p><a href="#"><span>已注册？</span><span>登录</span></a></p>
+                <p class="btnP"><span>已注册？</span><a href="#"><span>登录</span></a></p>
             </div>
         </div>
     </main>
