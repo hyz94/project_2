@@ -1,5 +1,5 @@
 @charset "UTF-8";
-header { height: 206px; border-bottom: 1px solid #ccc; }
+header { height: 206px; border: 1px solid #ccc; }
 
 header .container { width: 1200px; }
 

@@ -1,0 +1,138 @@
+@charset "UTF-8";
+main { height: 9019px; background: #F5F5F5; padding-top: 25px; }
+
+main .container { height: 9019px; position: relative; }
+
+main .container h2 { height: 72px; background: #fff; line-height: 72px; padding-left: 14px; font-size: 32px; margin-bottom: 10px; }
+
+main .container .nav { width: 267px; }
+
+main .container .nav .goods { background: #fff; margin-bottom: 10px; padding: 0 10px; }
+
+main .container .nav .goods .clearfixP { line-height: 52px; font-size: 14px; cursor: pointer; }
+
+main .container .nav .goods .clearfixP .spanFl, main .container .nav .goods .clearfixP .spanFr { display: block; }
+
+main .container .nav .goods .clearfixP .spanFr, main .container .nav .goods .clearfixP .slideUp { font-size: 24px; font-family: "宋体"; }
+
+main .container .nav .goods .goodsType, main .container .nav .goods .gender, main .container .nav .goods .goodsBrand, main .container .nav .goods .goodsPrice, main .container .nav .goods .goodsColor { font-size: 10px; border-top: 1px solid #ccc; display: none; }
+
+main .container .nav .goods .goodsType li, main .container .nav .goods .gender li, main .container .nav .goods .goodsBrand li, main .container .nav .goods .goodsPrice li, main .container .nav .goods .goodsColor li { padding: 6px; }
+
+main .container .nav .goods .goodsType li span, main .container .nav .goods .gender li span, main .container .nav .goods .goodsBrand li span, main .container .nav .goods .goodsPrice li span, main .container .nav .goods .goodsColor li span { padding-left: 5px; }
+
+main .container .nav .goods .goodsType input, main .container .nav .goods .gender input, main .container .nav .goods .goodsBrand input, main .container .nav .goods .goodsPrice input, main .container .nav .goods .goodsColor input { width: 16px; height: 16px; border: 1px solid #ccc; }
+
+main .container .nav .goods .goodsType { height: 288px; }
+
+main .container .nav .goods .goodsType li { cursor: pointer; position: relative; }
+
+main .container .nav .goods .goodsType li i { width: 14px; height: 14px; display: block; background: url(../img/goodslist.gif) 0px 14px; position: absolute; top: 8px; }
+
+main .container .nav .goods .goodsType li span { padding-left: 20px; }
+
+main .container .nav .goods .goodsPrice { padding-top: 30px; }
+
+main .container .nav .goods .goodsPrice input { width: 110px; height: 30px; }
+
+main .container .nav .goods .goodsPrice span { padding: 0px 10px; }
+
+main .container .nav .goods .goodsPrice .btnP { padding-top: 20px; }
+
+main .container .nav .goods .goodsPrice .btnP button { cursor: pointer; width: 100%; height: 34px; background: #333; color: #fff; text-align: center; line-height: 34px; }
+
+main .container .nav .goods .goodsColor ul li { position: relative; }
+
+main .container .nav .goods .goodsColor ul li span { padding-left: 30px; }
+
+main .container .nav .goods .goodsColor ul li i { display: block; width: 22px; height: 22px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(1) i { background: url(../img/goodslist1.gif); position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(2) i { background: url(../img/goodslist1.gif) -22px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(3) i { background: url(../img/goodslist1.gif) -44px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(4) i { background: url(../img/goodslist1.gif) -66px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(5) i { background: url(../img/goodslist1.gif) -88px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(6) i { background: url(../img/goodslist1.gif) -110px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(7) i { background: url(../img/goodslist1.gif) -132px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(8) i { background: url(../img/goodslist1.gif) -154px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(1) li:nth-child(9) i { background: url(../img/goodslist1.gif) -176px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(1) i { background: url(../img/goodslist1.gif) -198px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(2) i { background: url(../img/goodslist1.gif) -220px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(3) i { background: url(../img/goodslist1.gif) -242px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(4) i { background: url(../img/goodslist1.gif) -264px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(5) i { background: url(../img/goodslist1.gif) -286px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(6) i { background: url(../img/goodslist1.gif) -308px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(7) i { background: url(../img/goodslist1.gif) -330px; position: absolute; top: 5px; left: 27px; }
+
+main .container .nav .goods .goodsColor ul:nth-child(2) li:nth-child(8) i { background: #fff; border: 1px solid #ccc; position: absolute; top: 5px; left: 27px; }
+
+main .container .goodslist { width: 928px; height: 8912px; }
+
+main .container .goodslist .topNav { margin: 0px 0px 5px 5px; height: 56px; font-size: 10px; line-height: 56px; color: #555; text-align: center; background: #fff; }
+
+main .container .goodslist .topNav span, main .container .goodslist .topNav i { cursor: pointer; }
+
+main .container .goodslist .topNav ul:nth-child(1) li { width: 80px; height: 56px; }
+
+main .container .goodslist .topNav ul:nth-child(2) li { position: relative; width: 36px; height: 56px; }
+
+main .container .goodslist .topNav ul:nth-child(2) li:nth-child(1) { width: 85px; }
+
+main .container .goodslist .topNav ul:nth-child(2) li:last-child { height: 56px; }
+
+main .container .goodslist .topNav ul:nth-child(2) li:last-child i { width: 20px; height: 20px; display: block; background: url(../img/goodslist2.gif) -20px -20px; position: absolute; top: 18px; }
+
+main .container .goodslist .topNav ul:nth-child(2) li span { padding: 2px 5px; }
+
+main .container .goodslist .topNav ul:nth-child(2) li:nth-child(2) span { background: #000; color: #fff; }
+
+main .container .goodslist .goodsList { height: 8756px; width: 100%; }
+
+main .container .goodslist .goodsList li { margin: 0px 0px 5px 5px; background: #fff; width: 227px; height: 392px; font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 20px 10px; }
+
+main .container .goodslist .goodsList li .nameP { font-weight: bold; }
+
+main .container .goodslist .goodsList li p { padding: 0px 20px; line-height: 30px; }
+
+main .container .goodslist .bottomNav { width: 100%; height: 56px; font-size: 10px; line-height: 56px; color: #555; text-align: center; }
+
+main .container .goodslist .bottomNav ul li { position: relative; width: 36px; height: 56px; }
+
+main .container .goodslist .bottomNav ul li:nth-child(1) { width: 85px; }
+
+main .container .goodslist .bottomNav ul li:last-child { height: 56px; }
+
+main .container .goodslist .bottomNav ul li:last-child i { width: 20px; height: 20px; display: block; background: url(../img/goodslist2.gif) -20px -20px; position: absolute; top: 18px; }
+
+main .container .goodslist .bottomNav ul li span { padding: 2px 5px; }
+
+main .container .goodslist .bottomNav ul li:nth-child(2) span { background: #000; color: #fff; }
+
+.consult { width: 60px; position: fixed; top: 300px; right: 10px; background: #fff; z-index: 200; }
+
+.consult li { height: 60px; width: 100%; border: 1px solid #ccc; position: relative; }
+
+.consult li i { width: 35px; height: 35px; display: block; }
+
+.consult li:nth-child(1) i { background: url(../img/goodslist3.png); position: absolute; top: 12px; left: 11.5px; }
+
+.consult li:nth-child(2) i { background: url(../img/goodslist3.png) 0px -35px; position: absolute; top: 12px; left: 11.5px; }
+
+.consult li:nth-child(3) i { background: url(../img/goodslist3.png) 0px -70px; position: absolute; top: 12px; left: 11.5px; }
+
+.consult li:nth-child(4) i { background: url(../img/goodslist3.png) 0px -105px; position: absolute; top: 12px; left: 11.5px; }

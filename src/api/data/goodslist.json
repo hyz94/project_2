@@ -1,0 +1,37 @@
+[ 
+    {
+        "id":"001",
+        "imgurl":"../img/goodslist_goods1.jpg",
+        "name":"Philipp Plein 菲利普.普兰",
+        "type":"棉质 男士 长袖T恤",
+        "price":"3000",
+        "detailsImg1":"../img/details1.jpg",
+        "detailsImg2":"../img/details2.jpg",
+        "detailsImg3":"../img/details3.jpg",
+        "detailsImg4":"../img/details4.jpg",
+        "detailsImg5":"../img/details5.jpg",
+        "color":"黑色",
+        "size":"XL"
+    },
+    {
+        "id":"002",
+        "imgurl":"../img/goodslist_goods2.jpg",
+        "name":"Givenchy 纪梵希",
+        "type":"【新品上市】黑色印花男士长袖衬衫",
+        "price":"3200"
+    },
+    {
+        "id":"003",
+        "imgurl":"../img/goodslist_goods3.jpg",
+        "name":"Marcelo Burlon 马尔塞洛比隆",
+        "type":"时尚翅膀羽毛印花男卫衣MB1811220199 CMBA009F16002014.108",
+        "price":"2700"
+    },
+    {
+        "id":"004",
+        "imgurl":"../img/goodslist_goods4.jpg",
+        "name":"Prada 普拉达",
+        "type":"【新品上市】迷彩男士羊毛衫",
+        "price":"3999"
+    }
+]

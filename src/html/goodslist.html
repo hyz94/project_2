@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>美西时尚-商品列表</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/goodslist.css" />
+    <script src="../js/require.js" data-main="../js/goodslist" type="text/javascript"></script>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="container">
+            <h2>新进单品</h2>
+            <!-- //固定定位的导航条 -->
+            <div class="nav fl">
+                <div class="goods">
+                    <p class="clearfix clearfixP"><span class="fl spanFl">商品分类</span><span class="fr spanFr">+</span></p>
+                    <div class="goodsType"></div>
+                </div>
+                <div class="goods">
+                    <p class="clearfix clearfixP"><span class="fl spanFl">性别</span><span class="fr spanFr">+</span></p>
+                    <div class="gender">
+                        <ul>
+                            <li><input type="checkbox" /><span>男女</span></li>
+                            <li><input type="checkbox" /><span>男仕</span></li>
+                            <li><input type="checkbox" /><span>女士</span></li>
+                            <li><input type="checkbox" /><span>儿童</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="goods">
+                    <p class="clearfix clearfixP"><span class="fl spanFl">品牌</span><span class="fr spanFr">+</span></p>
+                    <div class="goodsBrand"></div>
+
+                </div>
+                <div class="goods">
+                    <p class="clearfix clearfixP"><span class="fl spanFl">价格</span><span class="fr spanFr">+</span></p>
+                    <div class="goodsPrice">
+                        <p><input type="text" placeholder="&nbsp;&nbsp;￥ 最低价"/><span>-</span><input type="text" placeholder="&nbsp;&nbsp;￥ 最高价"/></p>
+                        <p class="btnP"><button>确认</button></p>
+                    </div>
+                </div>
+                <div class="goods">
+                    <p class="clearfix clearfixP"><span class="fl spanFl">颜色</span><span class="fr spanFr">+</span></p>
+                    <div class="goodsColor clearfix">
+                        <ul class="fl">
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>黑色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>白色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>粉色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>红色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>蓝色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>绿色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>灰色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>金色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>银色</span>
+                            </li>
+                        </ul>
+                        <ul class="fr">
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>棕色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>橘色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>紫色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>黄色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>米色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>多色</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>经典</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <i></i>
+                                <span>透明</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="goodslist fr">
+                <div class="topNav clearfix">
+                    <ul class="fl clearfix">
+                        <li class="fl"><span>排序：</span></li>
+                        <li class="fl"><span>新品</span></li>
+                        <li class="fl"><span>人气</span></li>
+                        <li class="fl"><span>价格</span></li>
+                    </ul>
+                    <ul class="fr clearfix">
+                        <li class="fl"><span>736个结果</span></li>
+                        <li class="fl"><span>1</span></li>
+                        <li class="fl"><span>2</span></li>
+                        <li class="fl"><span>3</span></li>
+                        <li class="fl"><span>4</span></li>
+                        <li class="fl"><span>5</span></li>
+                        <li class="fl"><span>6</span></li>
+                        <li class="fl"><span>7</span></li>
+                        <li class="fl"><span>8</span></li>
+                        <li class="fl"><span>9</span></li>
+                        <li class="fl"><i></i></li>
+                    </ul>
+                </div>
+                <div class="goodsList"></div>
+                <div class="bottomNav">
+                    <ul class="fr clearfix">
+                        <li class="fl"><span>736个结果</span></li>
+                        <li class="fl"><span>1</span></li>
+                        <li class="fl"><span>2</span></li>
+                        <li class="fl"><span>3</span></li>
+                        <li class="fl"><span>4</span></li>
+                        <li class="fl"><span>5</span></li>
+                        <li class="fl"><span>6</span></li>
+                        <li class="fl"><span>7</span></li>
+                        <li class="fl"><span>8</span></li>
+                        <li class="fl"><span>9</span></li>
+                        <li class="fl"><i></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 固定咨询定位 -->
+    <div class="consult">
+        <ul>
+            <li><i></i></li>
+            <li><i></i></li>
+            <li><i></i></li>
+            <li class="toTop"><i></i></li>
+        </ul>
+    </div>
+    
+    <footer></footer>
+</body>
+</html>
