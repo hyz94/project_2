@@ -190,21 +190,24 @@ require(['config'],function(){
             }  
         });
         //利用ajax生成商品列表
-        $.ajax({
-            url:'../api/data/goodslist.json',
-            success:function(data){
-                // console.log(data)
-                var goodsListHtml = '';
-                for(var i=0;i<22;i++){
-                    goodsListHtml += data.map(function(item){
-                        return `<li data-id="${item.id}" class="fl">
-                        <a href="#"><img src="${item.imgurl}"/></a>
-                        <p class="nameP">${item.name}</p>
-                        <p>${item.type}</p>
-                        <p>￥${item.price}</p>
-                        </li>`
-                    }).join('');
-                }
+        // 切换分页
+        $('.bottomNav').on('click','span',function(){
+            console.log(this);
+            var number = this.innerText*1;
+            console.log(number)
+            $.post('../api/goodslist.php',{pageNo:number,qty:88},function(data){
+                console.log(JSON.parse(data))
+                var data = JSON.parse(data).data;
+                $('.goodsList').html('');
+                var goodsListHtml = data.map(function(item){
+                    return `<li data-id="${item.id}" class="fl">
+                    <a href="#"><img src="${item.imgurl}"/></a>
+                    <p class="nameP">${item.name}</p>
+                    <p>${item.type}</p>
+                    <p>￥${item.price}</p>
+                    </li>`
+                }).join('');
+                
                 
                 $('<ul/>').html(goodsListHtml).appendTo('.goodsList');
                 $('<ul/>').addClass('clearfix');
@@ -215,8 +218,64 @@ require(['config'],function(){
                         href:'../html/details.html?'+this.dataset.id
                     })
                 })
-            }
+                
+            })    
         })
+        $.post('../api/goodslist.php',{pageNo:1,qty:88},function(data){
+            console.log(JSON.parse(data))
+            var data = JSON.parse(data).data;
+            var goodsListHtml = data.map(function(item){
+                return `<li data-id="${item.id}" class="fl">
+                <a href="#"><img src="${item.imgurl}"/></a>
+                <p class="nameP">${item.name}</p>
+                <p>${item.type}</p>
+                <p>￥${item.price}</p>
+                </li>`
+            }).join('');
+            
+            
+            $('<ul/>').html(goodsListHtml).appendTo('.goodsList');
+            $('<ul/>').addClass('clearfix');
+            //点击获取商品的id并传参
+            $('.goodsList').on('click','li',function(){
+                console.log(this.dataset.id)
+                $(this).find('a').prop({
+                    href:'../html/details.html?'+this.dataset.id
+                })
+            })
+            
+        })
+        // $.ajax({
+        //     // pageNo:1,
+        //     // qty:88,
+        //     // type:'post',
+        //     url:'../api/goodslist.php',
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data)
+        //         // console.log(data)
+        //         // var goodsListHtml = '';
+        //         var goodsListHtml = data.map(function(item){
+        //             return `<li data-id="${item.id}" class="fl">
+        //             <a href="#"><img src="${item.imgurl}"/></a>
+        //             <p class="nameP">${item.name}</p>
+        //             <p>${item.type}</p>
+        //             <p>￥${item.price}</p>
+        //             </li>`
+        //         }).join('');
+                
+                
+        //         $('<ul/>').html(goodsListHtml).appendTo('.goodsList');
+        //         $('<ul/>').addClass('clearfix');
+        //         //点击获取商品的id并传参
+        //         $('.goodsList').on('click','li',function(){
+        //             console.log(this.dataset.id)
+        //             $(this).find('a').prop({
+        //                 href:'../html/details.html?'+this.dataset.id
+        //             })
+        //         })
+        //     }
+        // })
         //滚动到一定距离，设置固定定位
         $(window).scroll(function(){
             // console.log('window:',scrollY)
