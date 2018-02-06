@@ -182,7 +182,15 @@ require(['config'],function(){
                 }
                 //实现点击高亮当前span
                 $('.detailsImgSize').on('click','span',function(){
-                    console.log(this)
+                    console.log($(this).index())
+                    $('span').css({
+                        background:'#fff',
+                        color:'#333'
+                    })
+                    $(this).css({
+                        background:'#000',
+                        color:'#fff'
+                    })
                 })
                 //informationGoods商品信息的内容
                 $('.articleNumber').text(res.articleNumber);

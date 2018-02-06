@@ -190,15 +190,67 @@ require(['config'],function(){
             }  
         });
         //利用ajax生成商品列表
-        // 切换分页
+        var number = 1;
+        ajaxPost(number);
+        //头部切换分页
+        $('.navTop').on('click','span',function(){
+            console.log(this);
+            var number = this.innerText*1;
+            console.log(number);
+            $('.goodsList').html('');
+            ajaxPost(number);
+            //点击高亮当前span
+            //实现顶部与底部高亮同步
+            $('.navTop').find('span').css({
+                background:'#fff',
+                color:'#555'
+            });
+            var i = $(this).parent().index() - 1;
+            // console.log(i)
+            $(this).css({
+                background:'#000',
+                color:'#fff'
+            })
+            $('.bottomNav').find('span').css({
+                background:'#f5f5f5',
+                color:'#555'
+            });
+            $('.bottomNav').find('span').eq(i).css({
+                background:'#000',
+                color:'#fff'
+            })
+        })
+        // 尾部切换分页
         $('.bottomNav').on('click','span',function(){
             console.log(this);
             var number = this.innerText*1;
-            console.log(number)
+            console.log(number);
+            $('.goodsList').html('');
+            ajaxPost(number);
+            //点击高亮当前span
+            //实现顶部底部同步高亮
+            var i = $(this).parent().index() - 1;
+            $('.bottomNav').find('span').css({
+                background:'#f5f5f5',
+                color:'#555'
+            });
+            $(this).css({
+                background:'#000',
+                color:'#fff'
+            });
+            $('.navTop').find('span').css({
+                background:'#fff',
+                color:'#555'
+            });
+            $('.navTop').find('span').eq(i).css({
+                background:'#000',
+                color:'#fff'
+            })
+        })
+        function ajaxPost(number){
             $.post('../api/goodslist.php',{pageNo:number,qty:88},function(data){
                 console.log(JSON.parse(data))
                 var data = JSON.parse(data).data;
-                $('.goodsList').html('');
                 var goodsListHtml = data.map(function(item){
                     return `<li data-id="${item.id}" class="fl">
                     <a href="#"><img src="${item.imgurl}"/></a>
@@ -219,63 +271,9 @@ require(['config'],function(){
                     })
                 })
                 
-            })    
-        })
-        $.post('../api/goodslist.php',{pageNo:1,qty:88},function(data){
-            console.log(JSON.parse(data))
-            var data = JSON.parse(data).data;
-            var goodsListHtml = data.map(function(item){
-                return `<li data-id="${item.id}" class="fl">
-                <a href="#"><img src="${item.imgurl}"/></a>
-                <p class="nameP">${item.name}</p>
-                <p>${item.type}</p>
-                <p>￥${item.price}</p>
-                </li>`
-            }).join('');
-            
-            
-            $('<ul/>').html(goodsListHtml).appendTo('.goodsList');
-            $('<ul/>').addClass('clearfix');
-            //点击获取商品的id并传参
-            $('.goodsList').on('click','li',function(){
-                console.log(this.dataset.id)
-                $(this).find('a').prop({
-                    href:'../html/details.html?'+this.dataset.id
-                })
             })
-            
-        })
-        // $.ajax({
-        //     // pageNo:1,
-        //     // qty:88,
-        //     // type:'post',
-        //     url:'../api/goodslist.php',
-        //     dataType:'json',
-        //     success:function(data){
-        //         console.log(data)
-        //         // console.log(data)
-        //         // var goodsListHtml = '';
-        //         var goodsListHtml = data.map(function(item){
-        //             return `<li data-id="${item.id}" class="fl">
-        //             <a href="#"><img src="${item.imgurl}"/></a>
-        //             <p class="nameP">${item.name}</p>
-        //             <p>${item.type}</p>
-        //             <p>￥${item.price}</p>
-        //             </li>`
-        //         }).join('');
-                
-                
-        //         $('<ul/>').html(goodsListHtml).appendTo('.goodsList');
-        //         $('<ul/>').addClass('clearfix');
-        //         //点击获取商品的id并传参
-        //         $('.goodsList').on('click','li',function(){
-        //             console.log(this.dataset.id)
-        //             $(this).find('a').prop({
-        //                 href:'../html/details.html?'+this.dataset.id
-        //             })
-        //         })
-        //     }
-        // })
+        }
+        
         //滚动到一定距离，设置固定定位
         $(window).scroll(function(){
             // console.log('window:',scrollY)
