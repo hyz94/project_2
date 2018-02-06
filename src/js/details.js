@@ -138,7 +138,7 @@ require(['config'],function(){
         //获取传过来的id
         var id = location.search.slice(1);
         console.log(id)
-        //用ajax获取商品列表
+        //用ajax实现商品详情
         $.ajax({
             url:'../api/data/goodslist.json',
             success:function(data){
@@ -151,14 +151,16 @@ require(['config'],function(){
                          
                 }    
                 console.log(res)
-                var $ul = $('<ul/>').html(`<li>
-                    <img src="${res.imgurl}"/>
-                    <img src="${res.detailsImg1}"/>
-                    <img src="${res.detailsImg2}"/>
-                    <img src="${res.detailsImg3}"/>
-                    <img src="${res.detailsImg4}"/>
-                    <img src="${res.detailsImg5}"/>
-                    </li>`);
+                //detailsImg的内容
+                var $ulHtml=`<li>
+                    <img src="${res.imgurl}"/></li>
+                    <li><img src="${res.detailsImg1}"/></li>
+                    <li><img src="${res.detailsImg2}"/></li>
+                    <li><img src="${res.detailsImg3}"/></li>
+                    <li><img src="${res.detailsImg4}"/></li>
+                    <li><img src="${res.detailsImg5}"/>
+                    </li>`;
+                var $ul = $('<ul/>').html($ulHtml);   
                 $('.detailsImg1').append($ul);
                 console.log($('.detailsImg2').find('img').get(0))
                 $('.detailsImg2').find('img').get(0).src = res.imgurl;
@@ -166,9 +168,62 @@ require(['config'],function(){
                 $('.detailsImgType').html(res.type);
                 $('.detailsImgPrice').html('￥'+res.price);
                 $('.detailsImgColor').find('span').html(res.color);
-
-
+                //高亮商品对应的尺码
+                console.log(res.size)
+                console.log($('.detailsImgSize').find('span').text())
+                $detailsImgSizeSpan = $('.detailsImgSize').find('span');
+                for(var $i=0;$i<$detailsImgSizeSpan.length;$i++){
+                    if($detailsImgSizeSpan.eq($i).text() == res.size){
+                        $detailsImgSizeSpan.eq($i).css({
+                            background:'#000',
+                            color:'#fff'
+                        })
+                    }
+                }
+                //实现点击高亮当前span
+                $('.detailsImgSize').on('click','span',function(){
+                    console.log(this)
+                })
+                //informationGoods商品信息的内容
+                $('.articleNumber').text(res.articleNumber);
+                $('.serialNumber').text(res.serialNumber);
+                $('.goodsPlace').text(res.goodsPlace);
+                $('.year').text(res.year);
+                $('.suitable').text(res.suitable);
+                $('.goodsColor').text(res.color);
+                $('.season').text(res.season);
+                $('.series').text(res.series);
+                $('.texture').text(res.texture);
+                $('.description').text(res.description);
+                //storyBrand的品牌故事内容
+                $('.storyBrand').text(res.story);
+                //goodsDetails商品详情的内容
+                var $goodsDetailsUl = $('<ul/>').html($ulHtml);
+                $('.goodsDetails').append($goodsDetailsUl);
             }
         })
+        //用ajax实现相关推荐的商品列表
+        //没有数据库暂时借用商品列表页的数据
+        $.ajax({
+            url:'../api/data/goodslist.json',
+            success:function(data){
+                console.log(data)
+                //相关推荐
+                var commendUlHtml = `<li class="fl commendBtn"><i><img src="../img/pre_btn.png"/></i></li>`;
+                commendUlHtml += data.map(function(item){
+                        return `<li data-id="${item.id}" class="fl commendLi">
+                        <a href="#"><img src="${item.imgurl}"/></a>
+                        <p class="nameP">${item.name}</p>
+                        <p>${item.type}</p>
+                        <p>￥${item.price}</p>
+                        </li>`
+                    }).join('');
+                commendUlHtml += `<li class="fr commendBtn"><i><img src="../img/next_btn.png"/></i></li>`
+                $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.commendGoods');
+                //猜你喜欢
+                $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.yourLike');
+            }
+        })
+        
     })
 })
