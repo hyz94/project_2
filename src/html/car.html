@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>购物车</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/car.css" />
+    <script src="../js/require.js" data-main="../js/car" type="text/javascript"></script>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="container">
+            <div class="carNav">
+                <ul class="clearfix">
+                    <li class="fl all"><input type="checkbox" /><span> 全选</span></li>
+                    <li class="fl goodsInformation"><span>商品信息</span></li>
+                    <li class="fl goodsPrice"><span>单价</span></li>
+                    <li class="fl goodsQty"><span>数量</span></li>
+                    <li class="fl totalPrice"><span>小计</span></li>
+                </ul>
+            </div>
+            <div class="goods">
+                
+            </div>
+            <div class="check clearfix">
+                <div class="check1 fl">
+                    <p><input type="checkbox" /><span> 全选</span><span>删除选中的商品</span><span>加入收藏</span></p>
+                    <a href="../html/goodslist.html">继续购物</a>
+                </div>
+                <div class="check2 fr">
+                    <p>已选商品 <span class="carQty"></span> 件 &nbsp;&nbsp;&nbsp;&nbsp;合计（不含运费、税费）:￥<span class="ttPrice"></span></p>
+                    <p>活动折扣：-￥<span>0.00</span></p>
+                    <span class="calPrice">立即结算</span>
+                </div>
+            </div>
+            <div class="yourLike">
+                <div class="commendP">
+                    <p>Guess Your Like</p>
+                    <p>猜你喜欢</p>
+                </div>
+            </div>
+            <div class="lastDiv">
+                
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

@@ -267,7 +267,7 @@ require(['config'],function(){
                 $('.goodsList').on('click','li',function(){
                     console.log(this.dataset.id)
                     $(this).find('a').prop({
-                        href:'../html/details.html?'+this.dataset.id
+                        href:'../html/details.html?id='+this.dataset.id
                     })
                 })
                 

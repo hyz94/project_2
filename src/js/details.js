@@ -6,7 +6,7 @@ require(['config'],function(){
             var arr = '1,2,#newGoods,#girlGoods,#manGoods,#homeLife,#watch,#brand'.split(',');
             var $jt1=$('.HnavF_jt1');
             var $jt2=$('.HnavF_jt2');
-            console.log($jt1)
+            // console.log($jt1)
             $('.HnavF').on('mouseenter','.mouseLi',function(){
                 // console.log($(this).index());
                 // console.log($(this))
@@ -96,42 +96,44 @@ require(['config'],function(){
                 $(this).css({color:'#555454'});
             })
             //自动登录，获取传过来的用户名
-            console.log(location.search)
+            // console.log(location.search)
             $('.hoverUl').css({
                 display:'none'
             })
-            if((location.search) != ''){
-                var arr_LS = location.search.slice(1).split('=');
-                // console.log(arr_LS[1]);
-                //删除跳转到登录注册页的a标签
-                $('.enter').closest('a').remove();
-                $('<span/>').text(arr_LS[1]+'▲').appendTo($('.HnavH_ul2').children().first());
-                $('.reg').closest('a').remove();
-                $('.HnavH_ul2').width('250px');
-                //hover上去生成一个ul
-                $('.hoverLi').css({
-                    position:'relative'
-                });
-                $('.hoverUl').css({
-                    display:'none',
-                    position:'absolute',
-                    left:'1px',
-                    top:'30px',
-                    'z-index':'100',
-                    background:'#fff',
-                    border:'1px solid #ccc'
-                });
-                $('.hoverUl').find('li').css({
-                    padding:'0px 10px',
-                    height:'30px'
-                });
-                $('.hoverLi').mouseenter(function(){
-                    $('.hoverUl').show();
-                }).mouseleave(function(){
-                    $('.hoverUl').hide();
-                })
-            }
             
+
+            // if((location.search) != ''){
+            //     var arr_LS = location.search.slice(1).split('=');
+            //     // console.log(arr_LS[1]);
+            //     //删除跳转到登录注册页的a标签
+            //     $('.enter').closest('a').remove();
+            //     $('<span/>').text(arr_LS[1]+'▲').appendTo($('.HnavH_ul2').children().first());
+            //     $('.reg').closest('a').remove();
+            //     $('.HnavH_ul2').width('250px');
+            //     //hover上去生成一个ul
+            //     $('.hoverLi').css({
+            //         position:'relative'
+            //     });
+            //     $('.hoverUl').css({
+            //         display:'none',
+            //         position:'absolute',
+            //         left:'1px',
+            //         top:'30px',
+            //         'z-index':'100',
+            //         background:'#fff',
+            //         border:'1px solid #ccc'
+            //     });
+            //     $('.hoverUl').find('li').css({
+            //         padding:'0px 10px',
+            //         height:'30px'
+            //     });
+            //     $('.hoverLi').mouseenter(function(){
+            //         $('.hoverUl').show();
+            //     }).mouseleave(function(){
+            //         $('.hoverUl').hide();
+            //     })
+            // }
+            // console.log(111)
         });
         //引入底部的代码
         $('footer').load('../html/footer.html');
@@ -139,19 +141,13 @@ require(['config'],function(){
         var id = location.search.slice(1);
         console.log(id)
         //用ajax实现商品详情
+        //获取数据库的内容
         $.ajax({
-            url:'../api/data/goodslist.json',
+            url:'../api/details.php?'+id,
+            dataType:'json',
             success:function(data){
-                var res;
-                for(var i=0;i<data.length;i++){
-                    if(data[i].id == id){
-                        res = data[i];
-                             
-                    }
-                         
-                }    
-                console.log(res)
-                //detailsImg的内容
+                console.log(data)
+                var res = data;
                 var $ulHtml=`<li>
                     <img src="${res.imgurl}"/></li>
                     <li><img src="${res.detailsImg1}"/></li>
@@ -162,18 +158,26 @@ require(['config'],function(){
                     </li>`;
                 var $ul = $('<ul/>').html($ulHtml);   
                 $('.detailsImg1').append($ul);
-                console.log($('.detailsImg2').find('img').get(0))
                 $('.detailsImg2').find('img').get(0).src = res.imgurl;
                 $('.detailsImgName').html(res.name);
                 $('.detailsImgType').html(res.type);
                 $('.detailsImgPrice').html('￥'+res.price);
                 $('.detailsImgColor').find('span').html(res.color);
+                //实现hover改变图片的显示
+                $('.detailsImg1').on('mouseenter','img',function(){
+                    console.log(this.src)
+                    $('.detailsImg2').find('img').get(0).src = this.src;
+                    
+                })
                 //高亮商品对应的尺码
                 console.log(res.size)
                 console.log($('.detailsImgSize').find('span').text())
                 $detailsImgSizeSpan = $('.detailsImgSize').find('span');
+                console.log($detailsImgSizeSpan.eq(1).text())
                 for(var $i=0;$i<$detailsImgSizeSpan.length;$i++){
+                    // console.log($i)
                     if($detailsImgSizeSpan.eq($i).text() == res.size){
+                        // console.log($i)
                         $detailsImgSizeSpan.eq($i).css({
                             background:'#000',
                             color:'#fff'
@@ -181,25 +185,30 @@ require(['config'],function(){
                     }
                 }
                 //实现点击高亮当前span
+                var size_cookie = '';
                 $('.detailsImgSize').on('click','span',function(){
                     console.log($(this).index())
-                    $('span').css({
+                    $('.detailsImgSize span').css({
                         background:'#fff',
                         color:'#333'
-                    })
+                    });
                     $(this).css({
                         background:'#000',
                         color:'#fff'
-                    })
+                    });
+                    size_cookie = '';
+                    size_cookie = $(this).text();
+                    console.log(size_cookie);
                 })
+                // console.log($('.detailsImg2').find('img').get(0))
                 //informationGoods商品信息的内容
                 $('.articleNumber').text(res.articleNumber);
                 $('.serialNumber').text(res.serialNumber);
                 $('.goodsPlace').text(res.goodsPlace);
                 $('.year').text(res.year);
                 $('.suitable').text(res.suitable);
-                $('.goodsColor').text(res.color);
                 $('.season').text(res.season);
+                $('.goodsColor').text(res.color);
                 $('.series').text(res.series);
                 $('.texture').text(res.texture);
                 $('.description').text(res.description);
@@ -208,10 +217,178 @@ require(['config'],function(){
                 //goodsDetails商品详情的内容
                 var $goodsDetailsUl = $('<ul/>').html($ulHtml);
                 $('.goodsDetails').append($goodsDetailsUl);
+                //点击加入购物袋添加到购物车初始化
+                //hover上去，显示固定定位
+                $buyFixed = $('.buyFixed');
+                $BF_jt1 = $('.BF_jt1');
+                $BF_jt2 = $('.BF_jt2');
+                $('.hoverBuyLi').mouseenter(function(){
+                    $buyFixed.css({
+                        display:'block'
+                    });
+                    $BF_jt1.css({
+                        display:'block'
+                    });
+                    $BF_jt2.css({
+                        display:'block'
+                    })
+                }).mouseleave(function(){
+                    $buyFixed.css({
+                        display:'none'
+                    });
+                    $BF_jt1.css({
+                        display:'none'
+                    });
+                    $BF_jt2.css({
+                        display:'none'
+                    })
+                })
+                $p = $('<p/>');  
+                $p.addClass('myGoodsP').html('我的商品');
+                $p.appendTo($buyFixed); 
+                var $checkP = $('<p/>');
+                var arr = [];
+                var qty = 1;
+                //点击加入购物车
+                //获取cookie
+                var goodslist = [];
+                var goodscar = {};
+                var cookies = document.cookie;
+                cookies = cookies.split('; ');
+                cookies.forEach(function(item){
+                    var arr_cookies = item.split('=');
+                    if(arr_cookies[0] === 'goodslist'){
+                        goodslist = JSON.parse(arr_cookies[1]);
+                    }
+                });
+                
+                $('.addGoodsCar').click(function(){
+                    var QTY = qty;
+                    $('.emptyP').remove();
+                    $p.css({
+                        display:'block'
+                    });
+                    
+                    $ul = $('<ul/>');
+                    $li = $(`<li data-id=${res.id}/>`);
+                    $buyFixed = $('.buyFixed');
+                    $buyFixed.css({
+                        display:'block'
+                    });
+                    $BF_jt1.css({
+                        display:'block'
+                    });
+                    $BF_jt2.css({
+                        display:'block'
+                    })
+                    //判断之前是否有这个商品
+                    for(var i=0;i<arr.length;i++){
+                        if(res.id == arr[i]){
+                            qty++;
+                            $('.goodsQty').text(qty);
+                            
+                            break;
+                        }
+                    }
+                    // arr.push(res.id);
+                    //之前没有这个商品的情况下
+                    // if(qty == QTY){
+                    //     $li.html(`
+                    //         <img src="${res.imgurl}" class="AGCImg fl"/>
+                    //         <p>${res.name}</p>
+                    //         <p>${res.type}</p>
+                    //         <p><span>${res.price}</span>&times;<span class="goodsQty">1</span></p>
+                    //         <span class="closeSpan">&times;</span>
+                    //         `);
+                        
+                    //     $li.appendTo($ul);
+                    //     $ul.appendTo($buyFixed);
+                    // }
+                    
+
+
+
+
+                    // 判断当前商品是否已经存在cookie当中
+                    //在的情况
+                    for(var i=0;i<goodslist.length;i++){
+                        if(goodslist[i].id === res.id){
+                            goodslist[i].qty++;
+                            break;
+                        }
+                    }
+                    
+                    // 不在的情况
+                    if(i===goodslist.length){
+                        // 通过按钮获取商品信息
+                        var goodscar = {
+                            id:res.id,
+                            imgurl:res.imgurl,
+                            name:res.name,
+                            price:res.price,
+                            size:res.size,
+                            type:res.type,
+                            color:res.color,
+                            qty:qty
+                        }
+                        // 添加到数组
+                        goodslist.push(goodscar);
+                    }
+                    //根据cookie重写ul
+                    var $li_html = '';
+                    var totalPrice = 0;
+                    $li_html = goodslist.map(function(item){
+                        totalPrice += item.price*item.qty;
+                        return `<li data-id="${item.id}">
+                            <img src="${item.imgurl}" class="AGCImg fl"/>
+                            <p>${item.name}</p>
+                            <p>${item.type}</p>
+                            <p><span>${item.price}</span>&times;<span class="goodsQty">${item.qty}</span></p>
+                            <span class="closeSpan">&times;</span>
+                        </li>`
+                    })
+                    console.log(totalPrice);
+                    $buyFixed.find('ul').remove();
+                    $ul.html($li_html);
+                    $ul.appendTo($buyFixed);
+                    //点击删除当前商品
+                    $('.buyFixed').on('click','.closeSpan',function(){
+                        $(this).closest('li').remove();
+                        console.log($(this).closest('li').get(0).dataset.id);
+                        //清除goodslist里储存的商品
+                        for(var i=0;i<goodslist.length;i++){
+                            if(goodslist[i].id == $(this).closest('li').get(0).dataset.id){
+                                console.log(i)
+                                goodslist.splice(i, 1);
+                                console.log(goodslist);
+                                document.cookie = 'goodslist='+JSON.stringify(goodslist);
+                            }
+                        }
+                        
+                    })
+
+
+
+                    // 写入cookie
+                    document.cookie = 'goodslist='+JSON.stringify(goodslist);
+
+                    //移出之前添加的结算内容
+                    $checkP.remove();
+                    //创建结算内容
+                    $checkP = $('<p/>');
+                    $checkP.addClass('checkGoods').html(`商品合计： ￥<span class="TotalPrice"></span><a href="../html/car.html">去结算</a>`);
+                    console.log($('.TotalPrice').text(111))
+                    $checkP.appendTo($buyFixed);
+                    $('.TotalPrice').text(totalPrice);
+                    $checkP.css({
+                        display:'block'
+                    })
+                    
+                    
+                })
             }
         })
         //用ajax实现相关推荐的商品列表
-        //没有数据库暂时借用商品列表页的数据
         $.ajax({
             url:'../api/data/goodslist.json',
             success:function(data){

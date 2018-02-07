@@ -49,11 +49,11 @@ header{
                     padding:0px 10px;
                     
                 }
-                li:nth-child(2){
-                    span{
-                        border-right:1px solid #ccc;
-                    }
-                }   
+               
+                .reg{
+                    border-right:1px solid #ccc;
+                }
+            
                 li:nth-child(3){
                     padding-right:40px;
                     i{
@@ -201,5 +201,62 @@ header{
                     display:none;
             }
         }
+    }
+}
+.buyFixed{
+    width: 383px;
+    background: #fff;
+    z-index:300;
+    position: absolute;top:35px;right:32px;
+    border:1px solid #ccc;
+    display:none;
+    padding:10px;
+    .BF_jt1{
+        width:0;height:0;border:10px solid transparent;
+        border-bottom-color:#ccc;position:absolute;
+        top:-20px;right:95px;
+        display:none;
+    }
+    .BF_jt2{
+        width:0;height:0;border:10px solid transparent;
+        border-bottom-color:#fff;position:absolute;
+        top:-19px;right:95px;
+        display:none;
+    }
+    .emptyP{
+        line-height: 80px;
+        font-size:10px;
+        color:#555454;
+        text-align:center;
+
+    }
+    .myGoodsP{
+        display:none;
+    }
+    .checkGoods{
+        display:none;
+    }
+    ul li{
+        width: 360px;
+        height: 82px;
+        position: relative;
+        img{
+            padding:5px 10px;
+            width: 80px;
+        }
+        p{
+            line-height: 26px;
+        }
+        .closeSpan{
+            padding:3px 5px;
+            position:absolute;top:20px;right:20px;
+        }
+        
+    }
+    .checkGoods a{
+        margin-left:100px;
+        padding:3px 5px;
+        background: #000;
+        color:#fff;
     }
 }

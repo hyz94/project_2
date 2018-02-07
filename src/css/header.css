@@ -23,7 +23,7 @@ header .container .HnavH .HnavH_ul2 { width: 250px; }
 
 header .container .HnavH .HnavH_ul2 li a span { padding: 0px 10px; }
 
-header .container .HnavH .HnavH_ul2 li:nth-child(2) span { border-right: 1px solid #ccc; }
+header .container .HnavH .HnavH_ul2 .reg { border-right: 1px solid #ccc; }
 
 header .container .HnavH .HnavH_ul2 li:nth-child(3) { padding-right: 40px; }
 
@@ -80,3 +80,25 @@ header .container .HnavF #brand ul:nth-child(1) { padding-left: 220px; }
 header .container .HnavF .HnavF_jt1 { width: 0; height: 0; border: 20px solid transparent; border-bottom-color: #ccc; position: absolute; top: 165px; left: 30px; display: none; }
 
 header .container .HnavF .HnavF_jt2 { width: 0; height: 0; border: 20px solid transparent; border-bottom-color: #fff; position: absolute; top: 166px; left: 30px; display: none; }
+
+.buyFixed { width: 383px; background: #fff; z-index: 300; position: absolute; top: 35px; right: 32px; border: 1px solid #ccc; display: none; padding: 10px; }
+
+.buyFixed .BF_jt1 { width: 0; height: 0; border: 10px solid transparent; border-bottom-color: #ccc; position: absolute; top: -20px; right: 95px; display: none; }
+
+.buyFixed .BF_jt2 { width: 0; height: 0; border: 10px solid transparent; border-bottom-color: #fff; position: absolute; top: -19px; right: 95px; display: none; }
+
+.buyFixed .emptyP { line-height: 80px; font-size: 10px; color: #555454; text-align: center; }
+
+.buyFixed .myGoodsP { display: none; }
+
+.buyFixed .checkGoods { display: none; }
+
+.buyFixed ul li { width: 360px; height: 82px; position: relative; }
+
+.buyFixed ul li img { padding: 5px 10px; width: 80px; }
+
+.buyFixed ul li p { line-height: 26px; }
+
+.buyFixed ul li .closeSpan { padding: 3px 5px; position: absolute; top: 20px; right: 20px; }
+
+.buyFixed .checkGoods a { margin-left: 100px; padding: 3px 5px; background: #000; color: #fff; }
