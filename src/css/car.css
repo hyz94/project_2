@@ -53,13 +53,13 @@ main .container .check .check2 { height: 200px; width: 300px; font-size: 10px; c
 
 main .container .check .check2 .calPrice { display: block; width: 165px; height: 50px; background: #c43f40; color: #fff; font-size: 16px; font-weight: bold; border-radius: 3px; line-height: 50px; text-align: center; margin: 20px 0px 0px 80px; }
 
-main .container .yourLike { border: 1px solid #ccc; background: #fff; height: 500px; padding: 0px 20px 0px 20px; }
+main .container .yourLike { border: 1px solid #ccc; background: #fff; height: 500px; padding: 0px 20px; }
 
-main .container .yourLike ul { height: 400px; padding: 20px 24px; }
+main .container .yourLike ul { height: 400px; padding: 20px 0px; }
 
 main .container .yourLike ul .commendBtn { margin-top: 100px; }
 
-main .container .yourLike ul .commendLi { width: 268px; padding: 0px 56px; }
+main .container .yourLike ul .commendLi { width: 300px; padding: 0px 56px; }
 
 main .container .yourLike ul .commendLi img { width: 160px; }
 

@@ -1,5 +1,5 @@
 require(['config'],function(){
-    require(['jquery'],function(){
+    require(['jquery','zoom','carousel'],function($){
         //引入头部的代码
         $('header').load('../html/header.html',function(){
             //实现鼠标移入移出，一级导航的显示隐藏，以及箭头的显示隐藏
@@ -167,6 +167,14 @@ require(['config'],function(){
                 $('.detailsImg1').on('mouseenter','img',function(){
                     console.log(this.src)
                     $('.detailsImg2').find('img').get(0).src = this.src;
+                    //高亮当前
+                    $('.detailsImg1').find('img').css({
+                        border:'1px solid #ccc'
+                    })
+                    $(this).css({
+                        border:'1px solid #f90'
+                    });
+                    
                     
                 })
                 //高亮商品对应的尺码
@@ -387,28 +395,67 @@ require(['config'],function(){
                     
                 })
             }
-        })
+        });
         //用ajax实现相关推荐的商品列表
+        // $.ajax({
+        //     url:'../api/data/goodslist.json',
+        //     success:function(data){
+        //         console.log(data)
+        //         //相关推荐
+        //         var commendUlHtml = `<li class="fl commendBtn"><i><img src="../img/pre_btn.png"/></i></li>`;
+        //         commendUlHtml += data.map(function(item){
+        //                 return `<li data-id="${item.id}" class="fl commendLi">
+        //                 <a href="#"><img src="${item.imgurl}"/></a>
+        //                 <p class="nameP">${item.name}</p>
+        //                 <p>${item.type}</p>
+        //                 <p>￥${item.price}</p>
+        //                 </li>`
+        //             }).join('');
+        //         commendUlHtml += `<li class="fr commendBtn"><i><img src="../img/next_btn.png"/></i></li>`
+        //         $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.commendGoods');
+        //         //猜你喜欢
+        //         $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.yourLike');
+        //     }
+        // });
         $.ajax({
-            url:'../api/data/goodslist.json',
+            url:'../api/index.php',
+            dataType:'json',
             success:function(data){
-                console.log(data)
-                //相关推荐
-                var commendUlHtml = `<li class="fl commendBtn"><i><img src="../img/pre_btn.png"/></i></li>`;
-                commendUlHtml += data.map(function(item){
-                        return `<li data-id="${item.id}" class="fl commendLi">
+                var res = data;
+                console.log(res)
+                // var resHtml = `<li class="fl"><img src="../img/index_hot_zuo.png"/></li>`;
+                var resLiHtml = [];
+                var resHtml = res.map(function(item){
+                    return resLiHtml.push(`<li data-id="${item.id}" class="fl commendLi">
                         <a href="#"><img src="${item.imgurl}"/></a>
                         <p class="nameP">${item.name}</p>
                         <p>${item.type}</p>
                         <p>￥${item.price}</p>
-                        </li>`
-                    }).join('');
-                commendUlHtml += `<li class="fr commendBtn"><i><img src="../img/next_btn.png"/></i></li>`
-                $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.commendGoods');
-                //猜你喜欢
-                $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.yourLike');
+                        </li>`) ;
+                }).join('');
+                // resHtml += `<li class="fr"><img src="../img/index_hot_you.png"/></li>`;
+                // console.log(resHtml)
+                console.log(resLiHtml[0])
+                $('<ul/>').addClass('clearfix').html(resHtml);
+                $('.commendGoods').carousel({
+                    lis:[resLiHtml[0],resLiHtml[1],resLiHtml[2],resLiHtml[3],resLiHtml[4],resLiHtml[5],resLiHtml[6],resLiHtml[7],resLiHtml[8],resLiHtml[9],resLiHtml[10],resLiHtml[11],resLiHtml[12],resLiHtml[13],resLiHtml[14],resLiHtml[15],resLiHtml[16],resLiHtml[17],resLiHtml[18],resLiHtml[19]],
+                    width:'1160',
+                    height:'330',
+                    page:false,
+                    // autoPlay:false,
+                    number:4
+                }).show();
+                $('.yourLike').carousel({
+                    lis:[resLiHtml[0],resLiHtml[1],resLiHtml[2],resLiHtml[3],resLiHtml[4],resLiHtml[5],resLiHtml[6],resLiHtml[7],resLiHtml[8],resLiHtml[9],resLiHtml[10],resLiHtml[11],resLiHtml[12],resLiHtml[13],resLiHtml[14],resLiHtml[15],resLiHtml[16],resLiHtml[17],resLiHtml[18],resLiHtml[19]],
+                    width:'1200',
+                    height:'420',
+                    page:false,
+                    // autoPlay:false,
+                    number:4
+                }).show();
             }
         })
-        
+        //实现放大镜功能
+        $('.detailsImg2').gdsZoom();
     })
 })

@@ -44,17 +44,19 @@ main .container .detailsImg .detailsImg3 .buyP .link { background: url(../img/de
 
 main .container .goodsCommend, main .container .yourLike { background: #fff; height: 420px; padding: 0px 20px 0px 20px; margin-bottom: 98px; }
 
-main .container .goodsCommend ul, main .container .yourLike ul { height: 300px; padding: 20px 24px; }
+main .container .goodsCommend ul, main .container .yourLike ul { height: 300px; padding-top: 30px; }
 
 main .container .goodsCommend ul .commendBtn, main .container .yourLike ul .commendBtn { margin-top: 100px; }
 
-main .container .goodsCommend ul .commendLi, main .container .yourLike ul .commendLi { width: 268px; padding: 0px 56px; }
+main .container .goodsCommend ul .commendLi, main .container .yourLike ul .commendLi { width: 290px; padding: 0px 56px; }
 
 main .container .goodsCommend ul .commendLi img, main .container .yourLike ul .commendLi img { width: 160px; }
 
-main .container .goodsCommend ul .commendLi p, main .container .yourLike ul .commendLi p { font-size: 10px; color: #999; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: 30px; text-align: center; }
+main .container .goodsCommend ul .commendLi p, main .container .yourLike ul .commendLi p { font-size: 10px; color: #999; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: 26px; text-align: center; }
 
 main .container .goodsCommend ul .commendLi .nameP, main .container .yourLike ul .commendLi .nameP { font-weight: bold; color: #333; }
+
+main .container .yourLike ul .commendLi { width: 300px; }
 
 main .container .goodsInformation { padding: 0px 20px; background: #fff; height: 340px; margin-bottom: 18px; }
 

@@ -80,22 +80,30 @@ main{
                 height: 311px;
                 padding-top:6px;
                 overflow:hidden;
+                ul{
+                    
+                }
                 .goodsLi{
-                    width: 190px;
-                    padding:0px 15px;
+                    width: 200px;
+                    height: 311px;
+                    padding:0px 20px;
                     font-size:12px;
                     color:#555454;
+                    
                     .goodsType{
                         color:#e5e4e4;
                         line-height: 30px;
                     }
+                    img{
+                        width: 160px;
+                    }
+                    p{
+                        overflow:hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
                 }
-                & li:nth-child(1){
-                    padding:100px 0px 0px 10px;
-                }
-                & li:nth-child(8){
-                    padding:100px 10px 0px 0px;
-                }
+                
             }
 
         }

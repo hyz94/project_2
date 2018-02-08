@@ -1,5 +1,5 @@
 require(['config'],function(){
-    require(['jquery'],function($){
+    require(['jquery','carousel'],function($){
         console.log($)
         //引入头部的代码
         $('header').load('../html/header.html',function(){
@@ -185,24 +185,55 @@ require(['config'],function(){
 
 
         //猜你喜欢
+        // $.ajax({
+        //     url:'../api/data/goodslist.json',
+        //     success:function(data){
+        //         console.log(data)
+        //         //相关推荐
+        //         var commendUlHtml = `<li class="fl commendBtn"><i><img src="../img/pre_btn.png"/></i></li>`;
+        //         commendUlHtml += data.map(function(item){
+        //                 return `<li data-id="${item.id}" class="fl commendLi">
+        //                 <a href="#"><img src="${item.imgurl}"/></a>
+        //                 <p class="nameP">${item.name}</p>
+        //                 <p>${item.type}</p>
+        //                 <p>￥${item.price}</p>
+        //                 <span class="add">添加到购物袋</span>
+        //                 </li>`
+        //             }).join('');
+        //         commendUlHtml += `<li class="fr commendBtn"><i><img src="../img/next_btn.png"/></i></li>`;
+        //         //猜你喜欢
+        //         $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.yourLike');
+        //     }
+        // })
         $.ajax({
-            url:'../api/data/goodslist.json',
+            url:'../api/index.php',
+            dataType:'json',
             success:function(data){
-                console.log(data)
-                //相关推荐
-                var commendUlHtml = `<li class="fl commendBtn"><i><img src="../img/pre_btn.png"/></i></li>`;
-                commendUlHtml += data.map(function(item){
-                        return `<li data-id="${item.id}" class="fl commendLi">
+                var res = data;
+                console.log(res)
+                // var resHtml = `<li class="fl"><img src="../img/index_hot_zuo.png"/></li>`;
+                var resLiHtml = [];
+                var resHtml = res.map(function(item){
+                    return resLiHtml.push(`<li data-id="${item.id}" class="fl commendLi">
                         <a href="#"><img src="${item.imgurl}"/></a>
                         <p class="nameP">${item.name}</p>
                         <p>${item.type}</p>
                         <p>￥${item.price}</p>
                         <span class="add">添加到购物袋</span>
-                        </li>`
-                    }).join('');
-                commendUlHtml += `<li class="fr commendBtn"><i><img src="../img/next_btn.png"/></i></li>`;
-                //猜你喜欢
-                $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.yourLike');
+                        </li>`) ;
+                }).join('');
+                // resHtml += `<li class="fr"><img src="../img/index_hot_you.png"/></li>`;
+                // console.log(resHtml)
+                console.log(resLiHtml[0])
+                $('<ul/>').addClass('clearfix').html(resHtml);
+                $('.yourLike').carousel({
+                    lis:[resLiHtml[0],resLiHtml[1],resLiHtml[2],resLiHtml[3],resLiHtml[4],resLiHtml[5],resLiHtml[6],resLiHtml[7],resLiHtml[8],resLiHtml[9],resLiHtml[10],resLiHtml[11],resLiHtml[12],resLiHtml[13],resLiHtml[14],resLiHtml[15],resLiHtml[16],resLiHtml[17],resLiHtml[18],resLiHtml[19]],
+                    width:'1200',
+                    height:'500',
+                    page:false,
+                    // autoPlay:false,
+                    number:4
+                }).show();
             }
         })
     })
