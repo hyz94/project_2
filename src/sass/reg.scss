@@ -82,11 +82,6 @@ main{
             font-size:12px;
             line-height: 38px;
         }
-        .btn{
-            width: 100%;
-            border:1px solid #ccc;
-            cursor: pointer;
-        }
         .icon-tel,.icon-DXCode,.icon-pw,.icon-cfpw{
             width: 30px;
             height: 26px;
@@ -118,7 +113,9 @@ main{
             font-size:10px;
             color:red;
         }
-        .btn{
+        .regBtn{
+            width: 100%;
+            cursor: pointer;
             border:1px solid #ccc;
             background: #000;
             height: 50px;

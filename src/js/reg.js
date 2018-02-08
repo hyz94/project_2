@@ -1,6 +1,6 @@
 require(['config'],function(){
     require(['jquery'],function(){
-        //判断手机号码的格式
+        //判断手机号码，邮箱的格式
         var $verify=$('.verify');
         $('#tel').on('blur',function(){
             var $tel = $('#tel').val();
@@ -9,8 +9,8 @@ require(['config'],function(){
                 $verify.text('手机号码或者邮箱不合法');
                 return false;
             }
+            
         })
-        //将手机号存入数据库
         
 
         //生成随机验证码
@@ -44,6 +44,24 @@ require(['config'],function(){
                 $verify.text('两次密码输入不一致');
                 return false;
             }
+        })
+        //将数据传入数据库，判断是否已经存在
+        $('.regBtn').click(function(){
+            $.ajax({
+                url:'../api/reg.php',
+                data:{
+                    telOrEmail:$('#tel').val(),
+                    password:$('#password').val()
+                },
+                success:function(data){
+                    console.log(data);
+                    if(data === 'success'){
+                        location.href = '../html/enter.html';
+                    }else if(data === 'fail'){
+                        $verify.text('用户已存在');
+                    }
+                }
+            })
         })
     })
     

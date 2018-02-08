@@ -30,8 +30,6 @@ main .container .reg .DXCodeLeft { width: 200px; border: 1px solid #ccc; height:
 
 main .container .reg .DXCodeRight { height: 38px; width: 70px; font-size: 12px; line-height: 38px; }
 
-main .container .reg .btn { width: 100%; border: 1px solid #ccc; cursor: pointer; }
-
 main .container .reg .icon-tel, main .container .reg .icon-DXCode, main .container .reg .icon-pw, main .container .reg .icon-cfpw { width: 30px; height: 26px; display: block; border-right: 1px solid #ccc; }
 
 main .container .reg .icon-tel { background: url(../img/reg2.gif) -52px; position: absolute; left: 48px; top: 88px; }
@@ -46,7 +44,7 @@ main .container .reg input { width: 100%; }
 
 main .container .reg .verify { height: 30px; font-size: 10px; color: red; }
 
-main .container .reg .btn { border: 1px solid #ccc; background: #000; height: 50px; color: #fff; font-size: 20px; }
+main .container .reg .regBtn { width: 100%; cursor: pointer; border: 1px solid #ccc; background: #000; height: 50px; color: #fff; font-size: 20px; }
 
 main .container .reg .btnP { padding: 14px 0px 0px 225px; font-size: 10px; color: #555454; }
 
