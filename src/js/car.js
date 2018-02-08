@@ -1,6 +1,5 @@
 require(['config'],function(){
     require(['jquery','carousel'],function($){
-        console.log($)
         //引入头部的代码
         $('header').load('../html/header.html',function(){
             //实现鼠标移入移出，一级导航的显示隐藏，以及箭头的显示隐藏
@@ -102,7 +101,19 @@ require(['config'],function(){
                 display:'none'
             })
             
-
+            // var cookies = document.cookie;
+            // cookies = cookies.split('; ');
+            // cookies.forEach(function(item){
+            //     var arr_cookies = item.split('=');
+            //     if(arr_cookies[0] === 'goodslist'){
+            //         goodslist = JSON.parse(arr_cookies[1]);
+            //     }
+            // });
+            // var totalQty = 0;
+            // for(var i=0;i<goodslist.length;i++){
+            //     totalQty +=goodslist[i].qty;
+            // }
+            // $('.HnavH_ul2_s1').text('购物袋（'+totalQty+'）');
             // if((location.search) != ''){
             //     var arr_LS = location.search.slice(1).split('=');
             //     // console.log(arr_LS[1]);
@@ -149,11 +160,13 @@ require(['config'],function(){
                 goodslist = JSON.parse(arr_cookies[1]);
             }
         });
-        console.log(goodslist)
+        // console.log(goodslist)
         $ul = $('<ul/>');
         var $totalprice = 0;
+        var $carAllQty = 0;
         $ulHtml = goodslist.map(function(item){
             $totalprice += item.price*item.qty;
+            $carAllQty +=item.qty;
             return `<li class="clearfix">
                 <div class="fl all">
                     <input type="checkbox" />
@@ -168,7 +181,7 @@ require(['config'],function(){
                     <p>￥ ${item.price}</p>
                 </div>
                 <div class="fl goodsQty">
-                    <p class="clearfix"><button class="fl">-</button><input type="text" value="${item.qty}" class="fl"/><button class="fl">+</button></p>
+                    <p class="clearfix"><button class="fl qtySubtract">-</button><input type="text" value="${item.qty}" class="fl"/><button class="fl qtyAdd">+</button></p>
                 </div>
                 <div class="fl totalPrice">
                     <p>￥ ${item.qty*item.price}.00</p>
@@ -180,38 +193,50 @@ require(['config'],function(){
             </li>`
         })
         $ul.html($ulHtml).appendTo('.goods');
-        $('.carQty').text(goodslist.length);
+        function calQty(){
+            console.log($('.HnavH_ul2_s1'))
+            return $('.HnavH_ul2_s1').text($carAllQty);
+        }
+        $('.carQty').text($carAllQty);
         $('.ttPrice').text($totalprice.toFixed(2));
+        //点击+-按钮，改变数据
+        var qtySubNumber = 0;
+        $('.goods').on('click','.qtySubtract',function(){
+            qtySubNumber ++;
+            //改变数量
+            var $subInput = $(this).siblings('input');
+            var $subInputVal = $subInput.val();
+            $subInputVal--;
+            $carAllQty--;
+            $subInput.val($subInputVal);
+            $('.carQty').text($carAllQty);
+            //改变价格
+            console.log($(this).closest('.goodsQty').siblings('.totalPrice').find('p').text())
+            console.log($(this).closest('.goodsQty').siblings('.goodsPrice').find('p').text())
+            var $subTotalPrice = $('.totalPrice').find('p').text()*1 - $('goodsPrice').find('p').text()*1 * qtySubNumber;
+            console.log($subTotalPrice)
+        }).on('click','.qtyAdd',function(){
+            //改变数量
+            var $addInput = $(this).siblings('input');
+            var $addInputVal = $addInput.val();
+            $addInputVal++;
+            $carAllQty++;
+            $addInput.val($addInputVal);
+            $('.carQty').text($carAllQty);
+        })
+
+
+
+
 
 
         //猜你喜欢
-        // $.ajax({
-        //     url:'../api/data/goodslist.json',
-        //     success:function(data){
-        //         console.log(data)
-        //         //相关推荐
-        //         var commendUlHtml = `<li class="fl commendBtn"><i><img src="../img/pre_btn.png"/></i></li>`;
-        //         commendUlHtml += data.map(function(item){
-        //                 return `<li data-id="${item.id}" class="fl commendLi">
-        //                 <a href="#"><img src="${item.imgurl}"/></a>
-        //                 <p class="nameP">${item.name}</p>
-        //                 <p>${item.type}</p>
-        //                 <p>￥${item.price}</p>
-        //                 <span class="add">添加到购物袋</span>
-        //                 </li>`
-        //             }).join('');
-        //         commendUlHtml += `<li class="fr commendBtn"><i><img src="../img/next_btn.png"/></i></li>`;
-        //         //猜你喜欢
-        //         $('<ul/>').addClass('clearfix').html(commendUlHtml).appendTo('.yourLike');
-        //     }
-        // })
         $.ajax({
             url:'../api/index.php',
             dataType:'json',
             success:function(data){
                 var res = data;
-                console.log(res)
-                // var resHtml = `<li class="fl"><img src="../img/index_hot_zuo.png"/></li>`;
+                // console.log(res)
                 var resLiHtml = [];
                 var resHtml = res.map(function(item){
                     return resLiHtml.push(`<li data-id="${item.id}" class="fl commendLi">
@@ -222,9 +247,7 @@ require(['config'],function(){
                         <span class="add">添加到购物袋</span>
                         </li>`) ;
                 }).join('');
-                // resHtml += `<li class="fr"><img src="../img/index_hot_you.png"/></li>`;
-                // console.log(resHtml)
-                console.log(resLiHtml[0])
+                // console.log(resLiHtml[0])
                 $('<ul/>').addClass('clearfix').html(resHtml);
                 $('.yourLike').carousel({
                     lis:[resLiHtml[0],resLiHtml[1],resLiHtml[2],resLiHtml[3],resLiHtml[4],resLiHtml[5],resLiHtml[6],resLiHtml[7],resLiHtml[8],resLiHtml[9],resLiHtml[10],resLiHtml[11],resLiHtml[12],resLiHtml[13],resLiHtml[14],resLiHtml[15],resLiHtml[16],resLiHtml[17],resLiHtml[18],resLiHtml[19]],

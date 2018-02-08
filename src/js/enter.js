@@ -5,24 +5,26 @@ require(['config'],function(){
         $tel.blur(function(){
             var $telOrEmail = $tel.val();
             $.ajax({
-                url:'../api/enter.php?$telOrEmail='+$telOrEmail,
+                url:'../api/shujuku_enter.php?$telOrEmail='+$telOrEmail,
                 success:function(data){
                     console.log(data);
-                    if(data == 'nono'){
+                    if(data != 'successfail'){
                         $('.verify').text('会员不存在');
                     }
                 }
             })
+
+
         })
         //判断密码是否正确
         var $pw = $('#password');
         $pw.blur(function(){
             var $password = $pw.val();
             $.ajax({
-                url:'../api/enter.php?$password='+$password,
+                url:'../api/shujuku_enter.php?$password='+$password,
                 success:function(data){
                     console.log(data);
-                    if(data == 'nono'){
+                    if(data != 'failsuccess'){
                         $('.verify').text('密码不正确');
                     }else{
                         $('.btn').prop({

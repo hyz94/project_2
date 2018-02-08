@@ -105,9 +105,9 @@ require(['config'],function(){
                 console.log(arr_LS[1]);
                 //删除跳转到登录注册页的a标签
                 $('.enter').closest('a').remove();
-                $('<span/>').text(arr_LS[1]+'▲').appendTo($('.HnavH_ul2').children().first());
+                $('<span/>').text(arr_LS[1]).appendTo($('.HnavH_ul2').children().first());
                 $('.reg').closest('a').remove();
-                $('.HnavH_ul2').width('250px');
+                $('.HnavH_ul2').width('300px');
                 //hover上去生成一个ul
                 $('.hoverLi').css({
                     position:'relative'
