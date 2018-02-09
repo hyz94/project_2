@@ -156,8 +156,9 @@ require(['config'],function(){
                     <li><img src="${res.detailsImg4}"/></li>
                     <li><img src="${res.detailsImg5}"/>
                     </li>`;
-                var $ul = $('<ul/>').html($ulHtml);   
-                $('.detailsImg1').append($ul);
+                var $ul_detailsImg1 = $('<ul/>').html($ulHtml); 
+                var $ul = $('<ul/>').html($ulHtml);    
+                $('.detailsImg1').append($ul_detailsImg1);
                 //默认高亮第一张
                 $('.detailsImg1').find('img').first().css({
                     border:'1px solid #f90'
@@ -331,6 +332,32 @@ require(['config'],function(){
                     cookieUl();
                     // 写入cookie
                     document.cookie = 'goodslist='+JSON.stringify(goodslist);
+                    //实现商品飞入购物车效果
+                    var $cloneImg = $('.detailsImg2').find('img');
+                    var $goodsFlyImg = $cloneImg.clone();
+                    $goodsFlyImg.css({
+                        position:'absolute',
+                        left:$cloneImg.offset().left,
+                        top:$cloneImg.offset().top,
+                        width:$cloneImg.outerWidth()
+                    });
+
+                    // 把图片写入页面
+                    $('body').append($goodsFlyImg);
+
+
+                    //动画
+                    var $buyFixedCar = $('.buyFixed').find('ul');
+                    $goodsFlyImg.animate({
+                        left:$buyFixedCar.offset().left,
+                        top:$buyFixedCar.offset().top + $buyFixedCar.height(),
+                        width:30
+                    },function(){
+                        $goodsFlyImg.remove();
+                    })
+
+
+
                 })
                 function cookieUl(){
                     if(goodslist.length != 0){

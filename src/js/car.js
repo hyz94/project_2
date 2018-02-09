@@ -160,16 +160,16 @@ require(['config'],function(){
                 goodslist = JSON.parse(arr_cookies[1]);
             }
         });
-        // console.log(goodslist)
+        console.log(goodslist)
         $ul = $('<ul/>');
         var $totalprice = 0;
         var $carAllQty = 0;
         $ulHtml = goodslist.map(function(item){
             $totalprice += item.price*item.qty;
             $carAllQty +=item.qty;
-            return `<li class="clearfix">
+            return `<li class="clearfix" data-id="${item.id}">
                 <div class="fl all">
-                    <input type="checkbox" />
+                    <input type="checkbox" checked="true" class="goodsCheckbox"/>
                     <img src="${item.imgurl}" />
                 </div>
                 <div class="fl goodsInformation">
@@ -188,7 +188,7 @@ require(['config'],function(){
                 </div>
                 <div class="fl lastDiv">
                     <p>加入收藏</p>
-                    <span>删除</span>
+                    <span class="carClose">删除</span>
                 </div>
             </li>`
         })
@@ -199,34 +199,110 @@ require(['config'],function(){
         }
         $('.carQty').text($carAllQty);
         $('.ttPrice').text($totalprice.toFixed(2));
-        //点击+-按钮，改变数据
+        //点击+、-、删除按钮，改变数据
         var qtySubNumber = 0;
         $('.goods').on('click','.qtySubtract',function(){
-            qtySubNumber ++;
-            //改变数量
-            var $subInput = $(this).siblings('input');
-            var $subInputVal = $subInput.val();
-            $subInputVal--;
-            $carAllQty--;
-            $subInput.val($subInputVal);
-            $('.carQty').text($carAllQty);
-            //改变价格
-            console.log($(this).closest('.goodsQty').siblings('.totalPrice').find('p').text())
-            console.log($(this).closest('.goodsQty').siblings('.goodsPrice').find('p').text())
-            var $subTotalPrice = $('.totalPrice').find('p').text()*1 - $('goodsPrice').find('p').text()*1 * qtySubNumber;
-            console.log($subTotalPrice)
+            //获取当前li的dataset.id
+            var $liId = $(this).closest('li').get(0).dataset.id;
+            console.log($liId)
+            for(var i=0;i<goodslist.length;i++){
+                if(goodslist[i].id == $liId){
+                    if(goodslist[i].qty != 1){
+                        goodslist[i].qty--
+                    }
+                }
+            }
+            location.reload();
+            //更新cookie
+            document.cookie = 'goodslist='+JSON.stringify(goodslist);
+
         }).on('click','.qtyAdd',function(){
-            //改变数量
-            var $addInput = $(this).siblings('input');
-            var $addInputVal = $addInput.val();
-            $addInputVal++;
-            $carAllQty++;
-            $addInput.val($addInputVal);
-            $('.carQty').text($carAllQty);
+            //获取当前li的dataset.id
+            var $liId = $(this).closest('li').get(0).dataset.id;
+            console.log($liId)
+            for(var i=0;i<goodslist.length;i++){
+                if(goodslist[i].id == $liId){
+                    goodslist[i].qty++
+                }
+            }
+            location.reload();
+            //更新cookie
+            document.cookie = 'goodslist='+JSON.stringify(goodslist);
+
+        }).on('click','.carClose',function(){
+            console.log($(this).closest('li').get(0).dataset.id)
+            $(this).closest('li').remove();
+            var $liId = $(this).closest('li').get(0).dataset.id;
+            var clickTotalPrice = 0;
+            var clickTotalQty = 0;
+            for(var j=0;j<goodslist.length;j++){
+                if($liId == goodslist[j].id){
+                    
+                    goodslist.splice(j, 1);
+                    for(var i=0;i<goodslist.length;i++){
+                        clickTotalPrice += goodslist[i].price*goodslist[i].qty;
+                        clickTotalQty += goodslist[i].qty;
+                        console.log(goodslist.length)
+                        
+                    }
+                    $('.carQty').text(clickTotalQty);
+                    $('.ttPrice').text(clickTotalPrice.toFixed(2));
+                    document.cookie = 'goodslist='+JSON.stringify(goodslist);
+                }
+            }
         })
-
-
-
+        //实现全选功能
+        var $goodsCheckbox = $('.goodsCheckbox');
+        var $allSel = $('.allSel')
+        $allSel.click(function(){
+            var $allSelType = $allSel.get(0).checked;
+            for(var i=0;i<$goodsCheckbox.length;i++){
+                $('.goodsCheckbox').get(i).checked = $allSelType;
+            }
+            $allSel.get(1).checked = $allSelType;
+        })
+        $goodsCheckbox.click(function(){
+            for(var i=0;i<$goodsCheckbox.length;i++){
+                if($goodsCheckbox.get(i).checked == false){
+                    console.log(111)
+                    $('.allSel').get(0).checked = false;
+                    $('.allSel').get(1).checked = false;
+                }
+                if($goodsCheckbox.get(0).checked == true && $goodsCheckbox.get(1).checked == true && $goodsCheckbox.get(2).checked == true){
+                    $('.allSel').get(0).checked = true;
+                    $('.allSel').get(1).checked = true;
+                }
+            }
+            //实现总价、数量跟选择框的checked状态一致
+            var checkedTotalPrice = 0;
+            var checkedTotalQty = 0;
+            for(var i=0;i<$goodsCheckbox.length;i++){
+                if($goodsCheckbox.get(i).checked == true){
+                    // console.log(i)
+                    //获取当前行li的dataset.id
+                    var $liId = $($goodsCheckbox.get(i)).closest('li').get(0).dataset.id;
+                    // console.log($liId) 
+                    //计算选中的价格
+                    for(var j=0;j<goodslist.length;j++){
+                        if($liId == goodslist[j].id){
+                            checkedTotalPrice += goodslist[i].price*goodslist[i].qty;
+                            checkedTotalQty += goodslist[i].qty;
+                        }
+                    }
+                }
+            }
+            console.log(checkedTotalPrice,checkedTotalQty)
+            $('.carQty').text(checkedTotalQty);
+            $('.ttPrice').text(checkedTotalPrice.toFixed(2));
+        })
+        $('.carQty').css({
+            fontSize:'20px',
+            color:'green'
+        })
+        $('.ttPrice').css({
+            fontSize:'20px',
+            color:'red'
+        })
 
 
 

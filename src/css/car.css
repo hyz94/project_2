@@ -49,9 +49,9 @@ main .container .check .check1 p span { padding-right: 20px; }
 
 main .container .check .check1 a { display: block; width: 123px; height: 46px; font-size: 14px; color: #fff; border: solid 1px #ccc; border-radius: 3px; text-align: center; color: #666; line-height: 46px; margin: 50px 45px; }
 
-main .container .check .check2 { height: 200px; width: 300px; font-size: 10px; color: #666; line-height: 30px; text-align: right; }
+main .container .check .check2 { height: 190px; width: 400px; font-size: 10px; color: #666; line-height: 30px; text-align: right; }
 
-main .container .check .check2 .calPrice { display: block; width: 165px; height: 50px; background: #c43f40; color: #fff; font-size: 16px; font-weight: bold; border-radius: 3px; line-height: 50px; text-align: center; margin: 20px 0px 0px 80px; }
+main .container .check .check2 .calPrice { display: block; width: 165px; height: 50px; background: #c43f40; color: #fff; font-size: 16px; font-weight: bold; border-radius: 3px; line-height: 50px; text-align: center; margin: 20px 0px 0px 100px; }
 
 main .container .yourLike { border: 1px solid #ccc; background: #fff; height: 500px; padding: 0px 20px; }
 
